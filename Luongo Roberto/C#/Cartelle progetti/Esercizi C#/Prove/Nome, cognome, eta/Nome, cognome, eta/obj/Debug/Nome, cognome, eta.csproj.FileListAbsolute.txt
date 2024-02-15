@@ -1,0 +1,7 @@
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\bin\Debug\Nome, cognome, eta.exe.config
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\bin\Debug\Nome, cognome, eta.exe
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\bin\Debug\Nome, cognome, eta.pdb
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\obj\Debug\Nome, cognome, eta.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\obj\Debug\Nome, cognome, eta.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\obj\Debug\Nome, cognome, eta.exe
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Prove\Nome, cognome, eta\Nome, cognome, eta\obj\Debug\Nome, cognome, eta.pdb

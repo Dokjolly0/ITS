@@ -1,0 +1,6 @@
+@Verifica_Violatto_HostAddress = http://localhost:5215
+
+GET {{Verifica_Violatto_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

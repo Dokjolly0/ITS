@@ -1,0 +1,7 @@
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\bin\Debug\Index-05.exe.config
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\bin\Debug\Index-05.exe
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\bin\Debug\Index-05.pdb
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\obj\Debug\Index-05.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\obj\Debug\Index-05.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\obj\Debug\Index-05.exe
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-05\Index-05\obj\Debug\Index-05.pdb

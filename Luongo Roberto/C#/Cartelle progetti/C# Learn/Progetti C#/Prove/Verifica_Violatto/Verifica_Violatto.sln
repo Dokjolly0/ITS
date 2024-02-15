@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verifica_Violatto", "Verifica_Violatto\Verifica_Violatto.csproj", "{903EFA49-D26A-4B2C-8406-8B439DF5A3A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{903EFA49-D26A-4B2C-8406-8B439DF5A3A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903EFA49-D26A-4B2C-8406-8B439DF5A3A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903EFA49-D26A-4B2C-8406-8B439DF5A3A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903EFA49-D26A-4B2C-8406-8B439DF5A3A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09AB4BE4-79AB-484A-A059-5BD317A58815}
+	EndGlobalSection
+EndGlobal

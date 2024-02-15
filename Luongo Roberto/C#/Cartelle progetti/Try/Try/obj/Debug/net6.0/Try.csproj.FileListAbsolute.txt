@@ -1,0 +1,114 @@
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.AssemblyInfoInputs.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.AssemblyInfo.cs
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\appsettings.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Try.exe
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Try.deps.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Try.runtimeconfig.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Try.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Try.pdb
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.Try.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.build.Try.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Try.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Try.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\scopedcss\bundle\Try.styles.css
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.csproj.CopyComplete
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\refint\Try.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.pdb
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\Try.genruntimeconfig.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\Try\Try\obj\Debug\net6.0\ref\Try.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\appsettings.json
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Try.exe
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Try.deps.json
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Try.runtimeconfig.json
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Try.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Try.pdb
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\Try\Try\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.AssemblyInfoInputs.cache
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.AssemblyInfo.cs
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.Try.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.build.Try.props
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Try.props
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Try.props
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\scopedcss\bundle\Try.styles.css
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.csproj.CopyComplete
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.dll
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\refint\Try.dll
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.pdb
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\Try.genruntimeconfig.cache
+C:\Users\violatto_a\Desktop\Try\Try\obj\Debug\net6.0\ref\Try.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\appsettings.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Try.exe
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Try.deps.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Try.runtimeconfig.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Try.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Try.pdb
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.AssemblyInfoInputs.cache
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.AssemblyInfo.cs
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.Try.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.build.Try.props
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Try.props
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Try.props
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\scopedcss\bundle\Try.styles.css
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.csproj.CopyComplete
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\refint\Try.dll
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.pdb
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\Try.genruntimeconfig.cache
+C:\Users\violatto_a\Desktop\Luongo Roberto\C#\Try\Try\obj\Debug\net6.0\ref\Try.dll

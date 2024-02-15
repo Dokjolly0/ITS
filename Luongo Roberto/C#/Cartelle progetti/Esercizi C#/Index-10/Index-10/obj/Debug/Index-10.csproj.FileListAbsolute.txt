@@ -1,0 +1,7 @@
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\bin\Debug\Index-10.exe.config
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\bin\Debug\Index-10.exe
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\bin\Debug\Index-10.pdb
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\obj\Debug\Index-10.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\obj\Debug\Index-10.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\obj\Debug\Index-10.exe
+C:\Users\violatto_a\Desktop\C#\Esercizi C#\Index-10\Index-10\obj\Debug\Index-10.pdb

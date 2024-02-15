@@ -1,0 +1,10 @@
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\bin\Debug\Le classi.exe.config
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\bin\Debug\Le classi.exe
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\bin\Debug\Le classi.pdb
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le classi.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le_classi.Form1.resources
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le_classi.Properties.Resources.resources
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le classi.csproj.GenerateResource.cache
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le classi.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le classi.exe
+C:\Users\violatto_a\Desktop\C#\C# Desktop\Introduzione C# Desktop\Le classi\Le classi\obj\Debug\Le classi.pdb

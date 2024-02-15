@@ -1,0 +1,6 @@
+@Verifica_C__HostAddress = http://localhost:5005
+
+GET {{Verifica_C__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

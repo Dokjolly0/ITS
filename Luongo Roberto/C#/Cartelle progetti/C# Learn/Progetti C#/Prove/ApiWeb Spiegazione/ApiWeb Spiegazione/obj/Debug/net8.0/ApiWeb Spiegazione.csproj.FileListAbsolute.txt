@@ -1,0 +1,32 @@
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\appsettings.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\ApiWeb Spiegazione.exe
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\ApiWeb Spiegazione.deps.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\ApiWeb Spiegazione.runtimeconfig.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\ApiWeb Spiegazione.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\ApiWeb Spiegazione.pdb
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.csproj.AssemblyReference.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.AssemblyInfoInputs.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.AssemblyInfo.cs
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets\msbuild.ApiWeb Spiegazione.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets\msbuild.build.ApiWeb Spiegazione.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ApiWeb Spiegazione.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ApiWeb Spiegazione.props
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\scopedcss\bundle\ApiWeb Spiegazione.styles.css
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.csproj.CopyComplete
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\refint\ApiWeb Spiegazione.dll
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.pdb
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ApiWeb Spiegazione.genruntimeconfig.cache
+C:\Users\violatto_a\Desktop\C# Learn\Progetti C#\Prove\ApiWeb Spiegazione\ApiWeb Spiegazione\obj\Debug\net8.0\ref\ApiWeb Spiegazione.dll

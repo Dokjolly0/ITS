@@ -1,0 +1,48 @@
+C:\Users\benini_l\source\repos\Classi2\bin\Debug\net6.0-windows\Classi2.exe
+C:\Users\benini_l\source\repos\Classi2\bin\Debug\net6.0-windows\Classi2.deps.json
+C:\Users\benini_l\source\repos\Classi2\bin\Debug\net6.0-windows\Classi2.runtimeconfig.json
+C:\Users\benini_l\source\repos\Classi2\bin\Debug\net6.0-windows\Classi2.dll
+C:\Users\benini_l\source\repos\Classi2\bin\Debug\net6.0-windows\Classi2.pdb
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.Form1.resources
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.csproj.GenerateResource.cache
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.AssemblyInfoInputs.cache
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.AssemblyInfo.cs
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.csproj.CoreCompileInputs.cache
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.dll
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\refint\Classi2.dll
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.pdb
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\Classi2.genruntimeconfig.cache
+C:\Users\benini_l\source\repos\Classi2\obj\Debug\net6.0-windows\ref\Classi2.dll
+C:\Users\benini_l\source\repos\Classi con tabella\bin\Debug\net6.0-windows\Classi2.exe
+C:\Users\benini_l\source\repos\Classi con tabella\bin\Debug\net6.0-windows\Classi2.deps.json
+C:\Users\benini_l\source\repos\Classi con tabella\bin\Debug\net6.0-windows\Classi2.runtimeconfig.json
+C:\Users\benini_l\source\repos\Classi con tabella\bin\Debug\net6.0-windows\Classi2.dll
+C:\Users\benini_l\source\repos\Classi con tabella\bin\Debug\net6.0-windows\Classi2.pdb
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.Form1.resources
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.csproj.GenerateResource.cache
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.AssemblyInfoInputs.cache
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.AssemblyInfo.cs
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.csproj.CoreCompileInputs.cache
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.dll
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\refint\Classi2.dll
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.pdb
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\Classi2.genruntimeconfig.cache
+C:\Users\benini_l\source\repos\Classi con tabella\obj\Debug\net6.0-windows\ref\Classi2.dll
+C:\Users\violatto_a\Desktop\Classi con tabella\bin\Debug\net6.0-windows\Classi2.exe
+C:\Users\violatto_a\Desktop\Classi con tabella\bin\Debug\net6.0-windows\Classi2.deps.json
+C:\Users\violatto_a\Desktop\Classi con tabella\bin\Debug\net6.0-windows\Classi2.runtimeconfig.json
+C:\Users\violatto_a\Desktop\Classi con tabella\bin\Debug\net6.0-windows\Classi2.dll
+C:\Users\violatto_a\Desktop\Classi con tabella\bin\Debug\net6.0-windows\Classi2.pdb
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.Form1.resources
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.csproj.GenerateResource.cache
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.AssemblyInfoInputs.cache
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.AssemblyInfo.cs
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.csproj.CoreCompileInputs.cache
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.dll
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\refint\Classi2.dll
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.pdb
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\Classi2.genruntimeconfig.cache
+C:\Users\violatto_a\Desktop\Classi con tabella\obj\Debug\net6.0-windows\ref\Classi2.dll
