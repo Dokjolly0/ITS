@@ -12,7 +12,6 @@ public class Main {
         System.out.print("Ciao");
         System.out.println();
 
-        try{
             //Provo a connettermi al server
             //Registriamo il driver per accedere a SQL Server
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());

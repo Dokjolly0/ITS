@@ -1,7 +1,8 @@
+import express from "express";
 import cors from "cors";
-import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
-import { detail, list } from "./api/product/product-controller";
+import { Request, Response, NextFunction } from "express";
+import { list, detail } from "./api/product/product.controller";
 
 const app = express();
 
@@ -75,14 +76,27 @@ const cart: CartItem[] = [
   },
 ];
 
-app.get("/", (_req: Request, res: Response, _next: NextFunction) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
+  console.log("my middleware");
+
+  next();
+});
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  console.log("my second middleware");
+
+  next();
+});
+
+app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.setHeader("Content-Type", "text/plain");
   res.status(200);
   res.send("hello world");
 });
 
-app.get("/cart-items", (_req: Request, res: Response) => {
+app.get("/cart-items", (req: Request, res: Response) => {
   console.log("handler");
+
   res.json(cart);
 });
 
@@ -91,7 +105,6 @@ app.get("/products", list);
 app.get("/products/:id", detail);
 
 const port = 3000;
-
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
