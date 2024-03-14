@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      form span {
+        width: 100px; /* Larghezza fissa per le etichette */
+        float: left; /* Allineamento a sinistra */
+        clear: both; /* Assicura che ogni etichetta inizi da una nuova riga */
+        text-align: right; /* Allineamento del testo a destra all'interno della cella */
+        margin-right: 10px; /* Margine a destra per separare l'etichetta dall'input */
+        margin-bottom: 10px;
+      }
+      form input {
+        width: 200px; /* Larghezza fissa per gli input */
+        float: left; /* Allineamento a sinistra */
+        margin-bottom: 10px;
+      }
+      form button {
+        clear: both; /* Assicura che il pulsante inizi da una nuova riga */
+        float: left;
+        margin-top: 10px; /* Margine superiore per separare il pulsante dagli input */
+        margin-bottom: 5px;
+        position: relative;
+        left: 110px;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        /* border: 1px solid red; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="indexx.php" method="post">
+        <span>Nome:</span>
+        <input type="number" id="input1" /><br />
+        <span>Cognome:</span>
+        <input type="number" id="input2" /><br />
+        <button type="submit">Invio</button>
+      </form>
+    </div>
+  </body>
+</html>

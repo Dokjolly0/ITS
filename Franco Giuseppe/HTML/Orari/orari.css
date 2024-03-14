@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+span{
+    color: red;
+}
+div{
+    width: 50%;
+}
+thead{
+    background: #726d6d;
+}
+tbody{
+    background: #ece3e3;
+}

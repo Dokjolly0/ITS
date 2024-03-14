@@ -1,23 +1,22 @@
 import { CartItem } from "./cart-item.entity";
 import productService from "../product/product.service";
 import { isPopulated } from "../../utils/is-populated-obj";
+import { CartItemModel } from "./cart-item.model";
 
 const CART: CartItem[] = [];
 
 export class CartItemService {
-
   async list(): Promise<CartItem[]> {
-    const promises = CART.map(item => {
+    const promises = CART.map((item) => {
       return this.populateCartItem(item);
     });
     return Promise.all(promises);
+    // const q: any = {};
   }
 
   async getById(id: string): Promise<CartItem | null> {
-    const item = CART.find(element => element.id === id);
-    if (!item) {
-      return null;
-    }
+    const item = CART.find((element) => element.id === id);
+    if (!item) return null;
 
     return this.populateCartItem(item);
   }
@@ -27,26 +26,23 @@ export class CartItemService {
     const product = await productService.getById(id);
     return {
       ...item,
-      product: product!
+      product: product!,
     };
   }
 
   async add(item: CartItem): Promise<CartItem> {
-    const existing = CART.find(element => element.product === item.product);
+    const existing = CART.find((element) => element.product === item.product);
 
     if (existing) {
-      return this.update(
-        existing.id!,
-        {
-          quantity: existing.quantity + item.quantity
-        }
-      );
+      return this.update(existing.id!, {
+        quantity: existing.quantity + item.quantity,
+      });
     }
 
     const toAdd = {
       id: `${CART.length}`,
-      ...item
-    }
+      ...item,
+    };
 
     CART.push(toAdd);
 
@@ -54,18 +50,19 @@ export class CartItemService {
     return newItem!;
   }
 
-  async update(id: string, data: Partial<Omit<CartItem, 'id' | 'product'>>): Promise<CartItem> {
-    
-    const existing = CART.find(element => element.id === id);
+  async update(
+    id: string,
+    data: Partial<Omit<CartItem, "id" | "product">>
+  ): Promise<CartItem> {
+    const existing = CART.find((element) => element.id === id);
     if (!existing) {
-      throw new Error('Not Found');
+      throw new Error("Not Found");
     }
 
     Object.assign(existing, data);
     const updated = await this.getById(id);
     return updated!;
   }
-
 }
 
 export default new CartItemService();
