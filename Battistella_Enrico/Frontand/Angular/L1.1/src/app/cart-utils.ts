@@ -1,4 +1,4 @@
-import { CartItem } from './cart-item.entity';
+import { CartItem } from "./cart-item.entity";
 
 export function getVAT(country: string) {
   return country === 'IT' ? 0.22 : 0;
@@ -36,10 +36,8 @@ export function getTransportFee(weight: number) {
 }
 
 export function parseItem(item: CartItem, vat: number) {
-  let discountAmount =
-    getDiscountAmount(item.netPrice, item.discount) * item.quantity;
-  let discountedPrice =
-    getDiscountedPrice(item.netPrice, item.discount) * item.quantity;
+  let discountAmount = getDiscountAmount(item.netPrice, item.discount) * item.quantity;
+  let discountedPrice = getDiscountedPrice(item.netPrice, item.discount) * item.quantity;
 
   let vatAmount = getVatAmount(discountedPrice, vat);
   let price = getPrice(discountedPrice, vat);
@@ -52,6 +50,6 @@ export function parseItem(item: CartItem, vat: number) {
     discountAmount,
     discountedPrice,
     vatAmount,
-    price,
+    price
   };
 }

@@ -1,4 +1,4 @@
-import { CartItem } from './cart-item.entity';
+import { CartItem } from "./cart-item.entity";
 
 export const CART: CartItem[] = [
   {
@@ -7,7 +7,7 @@ export const CART: CartItem[] = [
     netPrice: 95,
     weight: 100,
     discount: 5,
-    quantity: 2,
+    quantity: 2
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const CART: CartItem[] = [
     netPrice: 270,
     weight: 900,
     discount: 0,
-    quantity: 1,
+    quantity: 1
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const CART: CartItem[] = [
     netPrice: 120,
     weight: 60,
     discount: 10,
-    quantity: 2,
+    quantity: 2
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const CART: CartItem[] = [
     netPrice: 400,
     weight: 130,
     discount: 0,
-    quantity: 1,
+    quantity: 1
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const CART: CartItem[] = [
     netPrice: 130,
     weight: 1400,
     discount: 15,
-    quantity: 1,
+    quantity: 1
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const CART: CartItem[] = [
     netPrice: 170,
     weight: 1000,
     discount: 23,
-    quantity: 1,
+    quantity:1
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const CART: CartItem[] = [
     netPrice: 1600,
     weight: 2500,
     discount: 0,
-    quantity: 1,
+    quantity: 1
   },
   {
     id: 8,
@@ -63,6 +63,6 @@ export const CART: CartItem[] = [
     netPrice: 130,
     weight: 3500,
     discount: 30,
-    quantity: 1,
-  },
+    quantity: 1
+  }
 ];
