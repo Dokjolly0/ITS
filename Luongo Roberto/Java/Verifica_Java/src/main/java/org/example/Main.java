@@ -16,7 +16,7 @@ public class Main {
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
             System.out.println("Registrazione driver riuscita");
 
-            String connectionString = "jdbc:sqlserver://localhost;databaseName=Gestionale;integratedSecurity=true; encrypt=true;trustServerCertificate=true;";
+            String connectionString = "jdbc:sqlserver://localhost;databaseName=AziendaModellismo;integratedSecurity=true; encrypt=true;trustServerCertificate=true;";
             conn = DriverManager.getConnection(connectionString);
         }
         catch(Exception e)
@@ -45,13 +45,61 @@ public class Main {
                         System.out.println("Inserisci 'A' o 'B' o 'exit' per uscire dal menu");
                         tipologia = scanner.nextLine();
                     }
+                    int scarico = 1;
                     if(tipologia.equalsIgnoreCase("A"))
                     {
-                        // Gestisci la tipologia A
+                        int articoloId = 1;
+                        System.out.println("Inserisci la quantità da produrre");
+                        int quantitaDaProdurre = scanner.nextInt();
+                        try
+                        {
+                            String stringaSql1 = "INSERT INTO Ordini (ArticoloId, QuantitaDaProdurre, ScaricoEffettuato) VALUES (?, ?, ?);";
+                            PreparedStatement preparedStatement = conn.prepareStatement(stringaSql1);
+                            preparedStatement.setInt(1, articoloId);
+                            preparedStatement.setInt(2, quantitaDaProdurre);
+                            preparedStatement.setInt(3, scarico);
+                            int rowsInserted = preparedStatement.executeUpdate();
+                            if(rowsInserted > 0)
+                            {
+                                System.out.println("Ordine inserito");
+                            }
+                            else
+                            {
+                                System.out.println("Errore nell'inserimento dell'ordine, ordine non inserito");
+                            }
+                        }
+                        catch(Exception e)
+                        {
+                            System.out.println("Errore nell'inserimento dell'ordine");
+                        }
+
                     }
                     else if(tipologia.equalsIgnoreCase("B"))
                     {
-                        // Gestisci la tipologia B
+                        int articoloId = 2;
+                        System.out.println("Inserisci la quantità da produrre");
+                        int quantitaDaProdurre = scanner.nextInt();
+                        try
+                        {
+                            String stringaSql1 = "INSERT INTO Ordini (ArticoloId, QuantitaDaProdurre, ScaricoEffettuato) VALUES (?, ?, ?);";
+                            PreparedStatement preparedStatement = conn.prepareStatement(stringaSql1);
+                            preparedStatement.setInt(1, articoloId);
+                            preparedStatement.setInt(2, quantitaDaProdurre);
+                            preparedStatement.setInt(3, scarico);
+                            int rowsInserted = preparedStatement.executeUpdate();
+                            if(rowsInserted > 0)
+                            {
+                                System.out.println("Ordine inserito");
+                            }
+                            else
+                            {
+                                System.out.println("Errore nell'inserimento dell'ordine, ordine non inserito");
+                            }
+                        }
+                        catch(Exception e)
+                        {
+                            System.out.println("Errore nell'inserimento dell'ordine");
+                        }
                     }
                     else if(tipologia.equalsIgnoreCase("exit"))
                     {
