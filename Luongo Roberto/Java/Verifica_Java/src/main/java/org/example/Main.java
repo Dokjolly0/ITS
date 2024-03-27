@@ -38,11 +38,11 @@ public class Main {
 
                 if(numero == 1)
                 {
-                    System.out.println("Inserisci la tipologia di veicolo (A/B)");
+                    System.out.println("Inserisci la tipologia di veicolo (A/B o 'exit' per uscire)");
                     String tipologia = scanner.nextLine();
-                    while(!tipologia.equalsIgnoreCase("A") && !tipologia.equalsIgnoreCase("B"))
+                    while(!tipologia.equalsIgnoreCase("A") && !tipologia.equalsIgnoreCase("B") && !tipologia.equalsIgnoreCase("exit"))
                     {
-                        System.out.println("Inserisci 'A' o 'B'");
+                        System.out.println("Inserisci 'A' o 'B' o 'exit' per uscire dal menu");
                         tipologia = scanner.nextLine();
                     }
                     if(tipologia.equalsIgnoreCase("A"))
@@ -52,6 +52,11 @@ public class Main {
                     else if(tipologia.equalsIgnoreCase("B"))
                     {
                         // Gestisci la tipologia B
+                    }
+                    else if(tipologia.equalsIgnoreCase("exit"))
+                    {
+                        System.out.println("Uscita dal menu...");
+                        continue;
                     }
 
 
