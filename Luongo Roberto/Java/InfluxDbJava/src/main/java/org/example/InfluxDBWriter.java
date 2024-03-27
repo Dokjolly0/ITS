@@ -71,41 +71,41 @@ public class InfluxDBWriter {
         String authToken = "z0cj0akYOwMgxXEBgza61TLe_80tHZ-WNDcoWYJaGb0gvLFsAMckWrNJHmBRGmBFxHjbxg_o0gwnHI5RSiW2vg==";
         String bucket = "new_bucket";
 
-//        try (InfluxDBClient client = InfluxDBClient.getInstance(hostUrl, authToken.toCharArray(), bucket)) {
-//            String database = "new_bucket";
-//
-//            Point[] points = new Point[] {
-//                    Point.measurement("census")
-//                            .addTag("location", "Klamath")
-//                            .addField("bees", 23),
-//                    Point.measurement("census")
-//                            .addTag("location", "Portland")
-//                            .addField("ants", 30),
-//                    Point.measurement("census")
-//                            .addTag("location", "Klamath")
-//                            .addField("bees", 28),
-//                    Point.measurement("census")
-//                            .addTag("location", "Portland")
-//                            .addField("ants", 32),
-//                    Point.measurement("census")
-//                            .addTag("location", "Klamath")
-//                            .addField("bees", 29),
-//                    Point.measurement("census")
-//                            .addTag("location", "Portland")
-//                            .addField("ants", 40)
-//            };
-//
-//            for (Point point : points) {
-//                client.writePoint(point, new WriteOptions.Builder().database(database).build());
-//                System.out.println("Write point");
-//                Thread.sleep(1000); // separate points by 1 second
-//            }
-//
-//            System.out.println("Complete. Return to the InfluxDB UI.");
-//        }
-//        catch (Exception e) {
-//            System.out.println("Error: " + e.getMessage());
-//        }
+        try (InfluxDBClient client = InfluxDBClient.getInstance(hostUrl, authToken.toCharArray(), bucket)) {
+            String database = "new_bucket";
+
+            Point[] points = new Point[] {
+                    Point.measurement("census")
+                            .addTag("location", "Klamath")
+                            .addField("bees", 23),
+                    Point.measurement("census")
+                            .addTag("location", "Portland")
+                            .addField("ants", 30),
+                    Point.measurement("census")
+                            .addTag("location", "Klamath")
+                            .addField("bees", 28),
+                    Point.measurement("census")
+                            .addTag("location", "Portland")
+                            .addField("ants", 32),
+                    Point.measurement("census")
+                            .addTag("location", "Klamath")
+                            .addField("bees", 29),
+                    Point.measurement("census")
+                            .addTag("location", "Portland")
+                            .addField("ants", 40)
+            };
+
+            for (Point point : points) {
+                client.writePoint(point, new WriteOptions.Builder().database(database).build());
+                System.out.println("Write point");
+                Thread.sleep(1000); // separate points by 1 second
+            }
+
+            System.out.println("Complete. Return to the InfluxDB UI.");
+        }
+        catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
         String sql = "SELECT * " +
                 "FROM 'census' " +
                 "WHERE time >= now() - interval '1 hour' " +
