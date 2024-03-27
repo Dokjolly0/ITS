@@ -1,6 +1,7 @@
 package org.example;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class Main {
@@ -37,7 +38,56 @@ public class Main {
 
                 if(numero == 1)
                 {
-//                System.out.println("Inserisci un nuovo ordine");
+                    System.out.println("Inserisci la tipologia di veicolo (A/B)");
+                    String tipologia = scanner.nextLine();
+                    while(!tipologia.equalsIgnoreCase("A") && !tipologia.equalsIgnoreCase("B"))
+                    {
+                        System.out.println("Inserisci 'A' o 'B'");
+                        tipologia = scanner.nextLine();
+                    }
+                    if(tipologia.equalsIgnoreCase("A"))
+                    {
+                        // Gestisci la tipologia A
+                    }
+                    else if(tipologia.equalsIgnoreCase("B"))
+                    {
+                        // Gestisci la tipologia B
+                    }
+
+
+
+
+
+
+
+//                    System.out.print("Inserisci il nome dell'articolo\n");
+//                    String nome = scanner.nextLine();
+//
+//                    System.out.println("Inserisci la descrizione dell'articolo");
+//                    String descrizione = scanner.nextLine();
+//
+//                    System.out.println("Inserisci la giacenza dell'articolo");
+//                    int giacenza = scanner.nextInt();
+//
+//                    System.out.println("Inserisci l'aliquota IVA dell'articolo");
+//                    int iva = scanner.nextInt();
+//
+//                    System.out.println("Inserisci il prezzo dell'articolo");
+//                    int prezzo = scanner.nextInt();
+//
+//                    String stringaSql1 = "";
+//                    PreparedStatement preparedStatement = conn.prepareStatement(stringaSql1);
+//                    preparedStatement.setString(1, nome);
+//                    preparedStatement.setString(2, descrizione);
+//                    preparedStatement.setInt(3, giacenza);
+//                    preparedStatement.setInt(4, iva);
+//                    preparedStatement.setInt(5, prezzo);
+//                    int rowsInserted = preparedStatement.executeUpdate();
+//                    if(rowsInserted > 0){
+//                        System.out.println("Articolo inserito");
+//                    }else{
+//                        System.out.println("Errore nell'inserimento dell'articolo, articolo non inserito");
+//                    }
                 }
                 else if(numero == 2)
                 {
