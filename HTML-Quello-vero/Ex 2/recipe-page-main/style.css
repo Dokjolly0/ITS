@@ -1,0 +1,66 @@
+* {
+  /* margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
+  font-family: outfit;
+}
+body {
+  background-color: #f3e5d8;
+  /* font-family: Young Serif; */
+  width: 100%;
+  height: 100vh;
+}
+span {
+  font-weight: bold;
+}
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+h1 {
+  text-align: left;
+  width: 100%;
+  font-family: young-serif;
+  /* border: 1px solid red; */
+}
+h3 {
+  color: #8a5c4a;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: white;
+  width: 50vw;
+  padding: 50px;
+  border-radius: 30px;
+  margin: auto;
+}
+.preparation {
+  background-color: #fdf5fa;
+  /* border: 1px solid red; */
+  width: 100%;
+  border-radius: 20px;
+}
+.preparation h4 {
+  color: #70324e;
+  position: relative;
+  left: 25px;
+}
+.ingrediets {
+  /* border: 1px solid red; */
+  width: 100%;
+}
+.istruction {
+  /* border: 1px solid red; */
+  width: 100%;
+}
+.istruction li::marker,
+.ingrediets li::marker {
+  color: #8a5c4a;
+}
+.preparation li::marker {
+  color: #70324e;
+}

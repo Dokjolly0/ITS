@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System;
 using Elasticsearch.Net;
 using Nest;
+using Elastic_Node_client.Properties;
+using System.Runtime;
 
 namespace Elastic_Node_client
 {
@@ -18,8 +20,15 @@ namespace Elastic_Node_client
         public Form1()
         {
             InitializeComponent();
+            //elastic key -> ei1Bcm80NEJrNFhNUWhkcmY5Y1A6WWMxQkxpSjdRSy0yMU9WeGxuNDhyZw==
+            //https://mydeployment-20e937.es.us-central1.gcp.cloud.es.io
             //create elastic client
-            var connectionSettings = new ConnectionSettings(new Uri("http://localhost:9200")).DefaultIndex("my_index");
+            var connectionSettings = 
+                new ConnectionSettings(new Uri("https://mydeployment-20e937.es.us-central1.gcp.cloud.es.io"))
+                    .DefaultIndex("persone");
+            var client = new ElasticClient(connectionSettings);
+            string apiKey = "ei1Bcm80NEJrNFhNUWhkcmY5Y1A6WWMxQkxpSjdRSy0yMU9WeGxuNDhyZw==";
+
         }
     }
 }
