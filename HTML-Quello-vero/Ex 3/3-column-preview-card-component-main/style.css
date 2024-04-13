@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.section1 {
+  background-color: #e28525;
+  width: 20%;
+  height: 50vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.section2 {
+  background-color: #016972;
+  width: 20%;
+  height: 50vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.section3 {
+  background-color: #00403f;
+  width: 20%;
+  height: 50vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  cursor: pointer;
+  color: #000;
+  /*Center the button*/
+  display: block;
+  margin: 0 auto;
+  height: 5vh;
+  /*Allinea in centro in basso senza Position Absololute*/
+  position: relative;
+  bottom: -70px;
+}

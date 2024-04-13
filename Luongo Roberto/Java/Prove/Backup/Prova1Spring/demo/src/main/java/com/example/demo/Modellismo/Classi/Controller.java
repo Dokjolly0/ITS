@@ -193,83 +193,81 @@ public class Controller {
     //#endregion
     //#region ScaricoMagazzino
     @PostMapping("/scaricoMagazzino")
-    public String scaricoMagazzino(@RequestBody Ordine ordine){
+    public String scaricoMagazzino(@RequestBody Ordine ordine) {
         try {
-            // Connessione al database
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
             System.out.println("Registrazione driver riuscita");
+
             String connectionString = "jdbc:sqlserver://localhost;databaseName=AziendaModellismo;integratedSecurity=true;encrypt=true;trustServerCertificate=true;";
             Connection conn = DriverManager.getConnection(connectionString);
+
+            if (conn != null) {
+                System.out.println("Connessione avvenuta");
+            } else {
+                System.out.println("Problema nella connessione");
+            }
+
+            System.out.println("Inserisci l'ID  dell'Ordine");
             int ordineID = ordine.getOrdineId();
-            // Verifica se lo scarico è già stato effettuato per l'ordine specificato
-            String checkScaricoSql = "SELECT ScaricoEffettuato FROM Ordini WHERE OrdineID = ?";
-            PreparedStatement checkScaricoStmt = conn.prepareStatement(checkScaricoSql);
-            checkScaricoStmt.setInt(1, ordineID);
-            ResultSet checkScaricoResultSet = checkScaricoStmt.executeQuery();
-            
-            if (checkScaricoResultSet.next()) {
-                boolean scaricoEffettuato = checkScaricoResultSet.getBoolean("ScaricoEffettuato");
+            String AggiornaGiacenza = "SELECT ArticoloId, QuantitaFabbisogno FROM Fabbisogni WHERE OrdineId = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(AggiornaGiacenza);
+            try {
+                preparedStatement.setInt(1, ordineID);
+            } catch(Exception exx) {
+                System.out.println();
+            }
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int ArticoloID = resultSet.getInt("ArticoloId");
+                int quantitaFabbisogno = resultSet.getInt("QuantitaFabbisogno");
+                //System.out.println("ArticoloID: " + ArticoloID + " Quantità Fabbisogno: " + quantitaFabbisogno);
+                String queryAggGiac = "UPDATE Articolo SET Giacenza = Giacenza - ? WHERE ArticoloId = ?";
+                try {
+                    preparedStatement= conn.prepareStatement(queryAggGiac);
+                    preparedStatement.setInt(1, quantitaFabbisogno);
+                    preparedStatement.setInt(2, ArticoloID);
+                    preparedStatement.executeUpdate();
+                }
+                catch(Exception ess) {
+                    System.out.println();
+                }
+            }
+
+            String verificaScarico = "SELECT ScaricoEffettuato FROM Ordini WHERE OrdineId = ?";
+            PreparedStatement verificaStatement = conn.prepareStatement(verificaScarico);
+            verificaStatement.setInt(1, ordineID);
+            ResultSet verificaSet = verificaStatement.executeQuery();
+
+            if (verificaSet.next()) {
+                boolean scaricoEffettuato = verificaSet.getBoolean("ScaricoEffettuato");
+
                 if (scaricoEffettuato) {
-                    return "Lo scarico magazzino per l'ordine ID " + ordineID + " è già stato effettuato.";
+                    System.out.println("Lo scarico per l'OrdineID " + ordineID + " è già stato effettuato.");
+                    return "Scarico già effettuato";
                 }
             }
-            
-            // Recupera i fabbisogni associati all'ordine
-            String fabbisogniSql = "SELECT ArticoloID, QuantitaFabbisogno FROM Fabbisogni WHERE OrdineID = ?";
-            PreparedStatement fabbisogniStmt = conn.prepareStatement(fabbisogniSql);
-            fabbisogniStmt.setInt(1, ordineID);
-            ResultSet fabbisogniResultSet = fabbisogniStmt.executeQuery();
-            //Prova di stampa
-            System.out.println(ordineID);
-            // Esegue lo scarico magazzino per ciascun articolo associato all'ordine
-            while (fabbisogniResultSet.next()) {
-                int articoloID = fabbisogniResultSet.getInt("ArticoloID");
-                int quantitàFabbisogno = fabbisogniResultSet.getInt("QuantitaFabbisogno");
-                
-                // Esegue lo scarico magazzino per l'articolo
-                String updateArticoloSql = "UPDATE Articolo SET Giacenza = Giacenza - ? WHERE ArticoloId = ?";
-                PreparedStatement updateArticoloStmt = conn.prepareStatement(updateArticoloSql);
-                updateArticoloStmt.setInt(1, quantitàFabbisogno);
-                updateArticoloStmt.setInt(2, articoloID);
-                updateArticoloStmt.executeUpdate();
 
-                //Controlla se hai le giacenze necessarie
-                String strSql = "SELECT ArticoloID, Giacenza FROM Articolo WHERE ArticoloID = ?";
-                PreparedStatement p = conn.prepareStatement(strSql);
-                p.setInt(1, ordine.getArticoloId());
-                ResultSet rs = p.executeQuery();
-                if (rs.next()) {
-                int giacenza = rs.getInt("Giacenza");
-                System.out.print(giacenza);
-                if (giacenza > quantitàFabbisogno) {
-                    return "Non hai le giacenze necessarie";
+            String Aggiornamento = "UPDATE Ordini SET ScaricoEffettuato = ? WHERE OrdineId = ?";
+            try {
+                preparedStatement = conn.prepareStatement(Aggiornamento);
+                preparedStatement.setBoolean(1, true);
+                preparedStatement.setInt(2, ordineID);
+                preparedStatement.executeUpdate();
+                int rowsUpdated = preparedStatement.executeUpdate();
+                if (rowsUpdated > 0) {
+                    System.out.println("Lo scarico magazzino per l'OrdineID " + ordineID + " è stato effettuato con successo.");
                 }
-            }
-            }
-
-            //cOntrolla se l'ordine esiste
-            String strSqlOrdine = "SELECT * FROM Ordini WHERE OrdineID = ?;";
-            PreparedStatement po = conn.prepareStatement(strSqlOrdine);
-            po.setInt(1, ordineID);
-            if (!po.executeQuery().next()) {
-                return "OrdineId non trovato";
-            }
-
-            // Aggiorna lo stato di ScaricoEffettuato nell'ordine
-            String updateScaricoSql = "UPDATE Ordini SET ScaricoEffettuato = 1 WHERE OrdineID = ?";
-            PreparedStatement updateScaricoStmt = conn.prepareStatement(updateScaricoSql);
-            updateScaricoStmt.setInt(1, ordineID);
-            updateScaricoStmt.executeUpdate();
-            
-            // Chiusura della connessione e restituzione del messaggio di successo
-            conn.close();
-            return "Scarico magazzino effettuato con successo per l'ordine ID " + ordineID;
-        } catch (SQLException ex) {
-            return "Errore durante lo scarico magazzino: " + ex.getMessage();
-    }
+            } catch(Exception ev) {
+                System.out.println(ev.getMessage());
+            } System.out.println("Lo scarico magazzino per l'OrdineID " + ordineID + " è stato effettuato con successo.");
+            return "Scarico effettuato con successo";
+        }
+        catch(Exception ex) {
+            System.out.println("Errore" + ex.getMessage());
+            return "Errore";
+        }
     }
     //#endregion
-
     //#region CalcoloCostoTotaleSemilavorati
     @PostMapping("/calcoloCostoTotaleSemilavorati")
     public String calcoloCosto(@RequestBody Ordine ordine){
@@ -332,10 +330,11 @@ public class Controller {
     }
 }
 //#endregion
+    //#region CalcoloCostoTotaleProdottoFinito
 /*
  Calcolo del costo Totale del costo Unitario per un prodotto finito: Input ArticoloID (prodotto finito 1 o 2) :  la WebAPI calcola il costo totale dei semilavorati per quello specifico prodotto finito e va ad aggiornare la TArticoli compilando il campo CostoUnitario solo per quell’articoloID (1 oppure 2) .
  */
-//#region CalcoloCostoTotaleProdottoFinito
+
 @PostMapping("/calcoloCostoTotaleProdottoFinito")
 public String calcoloCostoTotale(@RequestBody Articolo articolo){
     try{
@@ -354,7 +353,7 @@ public String calcoloCostoTotale(@RequestBody Articolo articolo){
         int articoloID = articolo.getArticoloId();
 
         //Controlla se l'articolo esiste e se è diverso da 1 o 2
-        String strSqlArticolo = "SELECT * FROM Ordini WHERE ArticoloID = ?";
+        String strSqlArticolo = "SELECT * FROM Articolo WHERE ArticoloID = ?;";
         PreparedStatement pa = conn.prepareStatement(strSqlArticolo);
         pa.setInt(1, articoloID);
         if (!pa.executeQuery().next()) {
