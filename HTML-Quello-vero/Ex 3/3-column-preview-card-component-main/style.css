@@ -11,6 +11,7 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  position: relative;
 }
 .section2 {
   background-color: #016972;
@@ -19,6 +20,7 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  position: relative;
 }
 .section3 {
   background-color: #00403f;
@@ -28,18 +30,25 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   border: 1px solid #ccc;
+  position: relative;
 }
 button {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+button:hover {
   background-color: transparent;
   border: 2px solid #fff;
   border-radius: 40px;
   cursor: pointer;
   color: #000;
-  /*Center the button*/
-  display: block;
-  margin: 0 auto;
-  height: 5vh;
-  /*Allinea in centro in basso senza Position Absololute*/
-  position: relative;
-  bottom: -70px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
