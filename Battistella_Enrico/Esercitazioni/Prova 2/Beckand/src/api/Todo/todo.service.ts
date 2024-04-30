@@ -18,32 +18,12 @@ export class TodoService {
   }
 
   //Partial è un tipo di TypeScript che crea un nuovo tipo con tutti i campi di un altro tipo impostati come obbligatori.
-  async add_todo(
-    title: string,
-    dueDate: Date,
-    userId: string,
-    assignedTo?: mongoose.Types.ObjectId
-  ): Promise<Todo> {
+  async add_todo(TodoObject, userId): Promise<Todo> {
     try {
-      // Cerca se esiste già un todo con lo stesso titolo per lo stesso utente
-      const existing_todo = await TodoModel.findOne({
-        title,
-        createdBy: userId,
-      });
-
-      // Se esiste già un todo con lo stesso titolo, lancia un errore
-      if (existing_todo) {
-        throw new Error(
-          "Esiste già un todo con lo stesso titolo per questo utente, modifica la data di scadenza."
-        );
-      }
-
       // Crea un nuovo todo utilizzando il modello TodoModel
       const newTodo = await TodoModel.create({
-        title,
-        dueDate,
-        createdBy: userId, // Imposta l'utente creatore
-        assignedTo: assignedTo,
+        ...TodoObject,
+        userId,
       });
 
       // Restituisci il nuovo todo appena creato

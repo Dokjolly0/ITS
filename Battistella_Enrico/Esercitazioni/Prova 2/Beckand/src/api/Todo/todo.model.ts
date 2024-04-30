@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const todo_schema = new mongoose.Schema<Todo>({
   id: String,
   title: { type: String, required: true },
-  dueDate: { type: Date, required: true },
+  dueDate: { type: Date, required: false },
   completed: { type: Boolean, default: false },
   //Stringa user model
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
@@ -14,7 +14,9 @@ const todo_schema = new mongoose.Schema<Todo>({
 todo_schema.virtual("expired").get(function (this: Todo) {
   const data_corrente = new Date();
   //Solo quando la data dueDate è scaduta il campo expired risultera true, altrimenti non risulta
-  if (this.dueDate < data_corrente) return true;
+  if (this.dueDate) {
+    if (this.dueDate < data_corrente) return true;
+  }
 });
 
 todo_schema.set("toJSON", {

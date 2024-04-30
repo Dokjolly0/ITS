@@ -30,13 +30,15 @@ export const add_todo = async (
     const user = req.user!;
     const { title, dueDate, assignedTo } = req.body;
 
-    // Aggiungi il todo utilizzando il service TodoService
-    const newTodo = await TodoService.add_todo(
+    const TodoObject = {
       title,
       dueDate,
-      user.id!,
-      assignedTo
-    );
+      createdBy: user.id!,
+      assignedTo: assignedTo,
+    };
+
+    // Aggiungi il todo utilizzando il service TodoService
+    const newTodo = await TodoService.add_todo(TodoObject, user.id!);
 
     // Invia il nuovo todo aggiunto come risposta
     res.json(newTodo);
@@ -51,6 +53,7 @@ export const check_todo = async (
   next: NextFunction
 ) => {
   try {
+    const user = req.user!;
     const todo = await TodoService.check_todo(req.params.id);
     await todo!.save();
     res.status(200).json(todo);
