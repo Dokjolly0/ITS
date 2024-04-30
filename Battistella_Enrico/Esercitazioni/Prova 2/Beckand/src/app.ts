@@ -4,6 +4,7 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import fs from "fs";
 import path from "path";
+import "./utils/auth/auth-handlers";
 
 import mainRouter from "./api/main_router";
 

@@ -1,4 +1,5 @@
 import express from "express";
+import { isAuthenticated } from "../../utils/authenticated";
 import {
   add_todo,
   show_todo,
@@ -8,6 +9,7 @@ import {
 
 const router = express.Router();
 
+router.use(isAuthenticated);
 router.get("/", show_todo);
 router.post("/", add_todo);
 router.patch("/:id/check", check_todo);

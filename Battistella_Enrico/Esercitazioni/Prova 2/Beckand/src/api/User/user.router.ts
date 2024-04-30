@@ -1,8 +1,9 @@
 import express from "express";
-import { register_user } from "./user.controller";
+import { isAuthenticated } from "../../utils/authenticated";
+import { me } from "./user.controller";
 
 const router = express.Router();
 
-router.post("/register", register_user);
+router.get("/me", isAuthenticated, me);
 
 export default router;

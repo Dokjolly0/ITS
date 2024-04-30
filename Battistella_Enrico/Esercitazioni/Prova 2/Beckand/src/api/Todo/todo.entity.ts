@@ -1,4 +1,4 @@
-import { user_entity as User } from "../User/user.entity";
+import { User } from "../User/user.entity";
 
 export interface task_entity {
   id?: string;

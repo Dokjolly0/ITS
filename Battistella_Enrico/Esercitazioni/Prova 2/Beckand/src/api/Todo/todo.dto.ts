@@ -1,8 +1,15 @@
 //npm install class-transformer //npm install class-validator
 import { Type } from "class-transformer";
-import { IsInt, IsMongoId, Min, IsString, IsDate } from "class-validator";
+import {
+  IsInt,
+  IsMongoId,
+  Min,
+  IsString,
+  IsDate,
+  IsOptional,
+} from "class-validator";
+import mongoose from "mongoose";
 import { isMongoId } from "validator";
-import { user_entity as User } from "../User/user.entity";
 
 export class Add_todo_dto {
   @IsString()
@@ -10,4 +17,8 @@ export class Add_todo_dto {
 
   @IsDate()
   dueDate: Date;
+
+  @IsMongoId()
+  @IsOptional()
+  assignedTo: mongoose.Types.ObjectId;
 }

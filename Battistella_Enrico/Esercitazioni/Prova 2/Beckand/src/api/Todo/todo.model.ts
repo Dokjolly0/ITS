@@ -6,26 +6,9 @@ const todo_schema = new mongoose.Schema<Todo>({
   title: { type: String, required: true },
   dueDate: { type: Date, required: true },
   completed: { type: Boolean, default: false },
-  createdBy: {
-    type: {
-      id: { type: String, required: true },
-      firstName: { type: String, required: true },
-      lastName: { type: String, required: true },
-      fullName: { type: String, required: true },
-      picture: { type: String, required: true },
-    },
-    required: false,
-  },
-  assignedTo: {
-    type: {
-      id: { type: String, required: true },
-      firstName: { type: String, required: true },
-      lastName: { type: String, required: true },
-      fullName: { type: String, required: true },
-      picture: { type: String, required: true },
-    },
-    required: false,
-  },
+  //Stringa user model
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
 todo_schema.virtual("expired").get(function (this: Todo) {
