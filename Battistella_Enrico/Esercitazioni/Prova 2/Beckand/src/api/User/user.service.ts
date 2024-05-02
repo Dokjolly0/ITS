@@ -30,6 +30,11 @@ export class UserService {
 
     return newUser;
   }
+
+  async show_all_users() {
+    const users = await UserModel.find();
+    return users;
+  }
 }
 
 export default new UserService();

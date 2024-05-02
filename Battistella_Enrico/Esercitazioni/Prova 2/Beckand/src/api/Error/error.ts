@@ -7,5 +7,4 @@ export const errorHandlers = [
   notFoundHandler,
   validationErrorHandler,
   genericHandler,
-  UserExistsError,
 ];

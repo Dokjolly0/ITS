@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 
-export const genericHandler = (err: Error, res: Response) => {
+export const genericHandler = (
+  err: Error,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   console.error(err); // Stampa l'errore sulla console per il debug
   res.status(500); // Imposta lo stato della risposta a 500 per indicare un errore interno del server
   res.json({

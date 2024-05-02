@@ -13,27 +13,32 @@ user_schema.virtual("fullName").get(function () {
 user_schema.set("toJSON", {
   virtuals: true,
   transform: (_, ret) => {
-    delete ret._id;
-    delete ret.__v;
-    return ret;
-  },
-});
-user_schema.set("toObject", {
-  virtuals: true,
-  transform: (_, ret) => {
-    delete ret._id;
-    delete ret.__v;
-    return ret;
-  },
-});
+    const id = ret._id ? ret._id.toString() : null;
 
-//Ordine nel db
-user_schema.index({
-  id: 1,
-  firstName: 1,
-  lastName: 1,
-  fullName: 1,
-  picture: 1,
+    //console.log("Valore di _id:", ret._id);
+    //console.log("Valore di __v:", ret.__v);
+
+    const orderedFields = {
+      id: ret.id, // Utilizza l'ID estratto
+      firstName: ret.firstName,
+      lastName: ret.lastName,
+      fullName: ret.fullName,
+      picture: ret.picture,
+    };
+
+    if (ret._id) {
+      delete ret._id; // Elimina _id dall'oggetto JSON
+      //console.log("_id eliminato");
+    }
+    if (ret.__v !== undefined) {
+      delete ret.__v; // Elimina __v dall'oggetto JSON solo se è presente
+      //console.log("__v eliminato");
+    }
+
+    //console.log("Oggetto JSON senza _id e __v:", orderedFields);
+
+    return orderedFields;
+  },
 });
 
 export const UserModel = mongoose.model<User>("User", user_schema);

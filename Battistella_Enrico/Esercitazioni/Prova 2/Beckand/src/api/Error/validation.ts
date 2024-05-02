@@ -22,6 +22,7 @@ export class ValidationError extends Error {
 
 export const validationErrorHandler = async (
   err: Error,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {

@@ -6,6 +6,6 @@ export interface task_entity {
   dueDate?: Date;
   completed: Boolean;
   expired?: Boolean;
-  createdBy?: User;
+  createdBy: User;
   assignedTo?: User;
 }

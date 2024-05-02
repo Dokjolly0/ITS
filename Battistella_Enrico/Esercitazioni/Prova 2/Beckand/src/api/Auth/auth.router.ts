@@ -1,5 +1,5 @@
 import express from "express";
-import { validate } from "../../utils/validation-middleware";
+import { validate } from "../../utils/validation";
 import { AddUserDTO, LoginDTO } from "./auth.dto";
 import { add, login } from "./auth.controller";
 

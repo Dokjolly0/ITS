@@ -11,6 +11,7 @@ export class NotFoundError extends Error {
 // Definisce una funzione middleware notFoundHandler per gestire gli errori di tipo NotFoundError
 export const notFoundHandler = (
   err: Error,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
