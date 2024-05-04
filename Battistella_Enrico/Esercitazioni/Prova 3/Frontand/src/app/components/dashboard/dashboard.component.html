@@ -26,7 +26,9 @@
       <ul class="sidebar-menu">
         <li>
           <div class="todo-item">
-            <a class="btn btn-view-todo">Visualizza i Todo</a>
+            <a class="btn btn-view-todo" (click)="onClickViewTodo()"
+              >Visualizza i Todo</a
+            >
             <div class="todo-options">
               <span class="option-label">Visualizza completati</span>
               <label class="toggle-switch">
@@ -36,12 +38,20 @@
             </div>
           </div>
         </li>
-        <li><a class="btn btn-add-todo">Aggiungere un Todo</a></li>
         <li>
-          <a class="btn btn-flag-completed">Flagga Completato</a>
+          <a class="btn btn-add-todo" (click)="onClickAddTodo()"
+            >Aggiungere un Todo</a
+          >
         </li>
         <li>
-          <a class="btn btn-flag-incomplete">Flagga Non Completato</a>
+          <a class="btn btn-flag-completed" (click)="onClickFlagCompleted()"
+            >Flagga Completato</a
+          >
+        </li>
+        <li>
+          <a class="btn btn-flag-incomplete" (click)="onClickFlagIncomplete()"
+            >Flagga Non Completato</a
+          >
         </li>
       </ul>
     </aside>
@@ -50,12 +60,16 @@
     <main class="main-content">
       <!-- Content Goes Here -->
     </main>
+
     <script>
-      document
-        .querySelector(".btn-view-todo")
-        .addEventListener("click", function () {
-          console.log("Bottone cliccato");
-        });
+      console.log("Script caricato");
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector(".btn-view-todo")
+          .addEventListener("click", function () {
+            console.log("Bottone cliccato");
+          });
+      });
     </script>
   </body>
 </html>

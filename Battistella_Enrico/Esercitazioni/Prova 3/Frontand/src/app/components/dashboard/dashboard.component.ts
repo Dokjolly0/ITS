@@ -11,4 +11,21 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     // Esegui qui eventuali operazioni di inizializzazione
   }
+
+  onClickViewTodo(): void {
+    alert('Hai cliccato sul pulsante "Visualizza Todo"');
+  }
+
+  onClickAddTodo(): void {
+    alert('Hai cliccato sul pulsante "Aggiungere un Todo"');
+  }
+
+  onClickFlagCompleted(): void {
+    alert('Hai cliccato sul pulsante "Flagga Completato"');
+  }
+
+  onClickFlagIncomplete(): void {
+    alert('Hai cliccato sul pulsante "Flagga Non Completato"');
+  }
 }
+console.log('Script caricato');
