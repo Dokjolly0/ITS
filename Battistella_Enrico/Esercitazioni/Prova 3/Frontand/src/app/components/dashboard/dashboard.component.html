@@ -14,10 +14,12 @@
           alt="User Icon"
           class="user-icon"
         />
-        <span class="profile-name">Nome Profilo</span>
+        <span class="profile-name">{{ fullName }}</span>
       </div>
       <ul class="navbar-nav">
-        <li><a href="#" class="btn btn-logout">Logout</a></li>
+        <li>
+          <a class="btn btn-logout" (click)="logout()">Logout</a>
+        </li>
       </ul>
     </nav>
 

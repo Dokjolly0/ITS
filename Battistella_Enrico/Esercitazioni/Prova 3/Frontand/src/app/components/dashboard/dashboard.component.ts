@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { TodoService } from '../../services/todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  fullName: string = '';
+
+  constructor(
+    private authService: AuthService,
+    private todoService: TodoService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    // Esegui qui eventuali operazioni di inizializzazione
+    // Recupera il nome completo dell'utente dopo il login
+    this.fullName = this.todoService.getUserFullName();
   }
 
   onClickViewTodo(): void {
@@ -26,6 +36,11 @@ export class DashboardComponent implements OnInit {
 
   onClickFlagIncomplete(): void {
     alert('Hai cliccato sul pulsante "Flagga Non Completato"');
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']); // Naviga verso la home page dopo il logout
   }
 }
 console.log('Script caricato');

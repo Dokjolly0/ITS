@@ -16,6 +16,11 @@ export class LoginComponent {
   login(): void {
     this.authService.login(this.username, this.password).subscribe(
       () => {
+        // Dopo il login con successo, recupera e stampa le informazioni dell'utente e il token
+        const user = this.authService.getUser();
+        const token = this.authService.getToken();
+        console.log('User:', user);
+        console.log('Token:', token);
         this.router.navigate(['/dashboard']);
       },
       (error: any) => {

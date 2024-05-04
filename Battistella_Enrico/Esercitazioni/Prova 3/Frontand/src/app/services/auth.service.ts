@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private token: string | null = null;
+  private user: any | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -15,30 +16,44 @@ export class AuthService {
     return this.http
       .post<any>('http://localhost:3000/api/auth/login', { username, password })
       .pipe(
-        tap((response: { token: any }) => {
+        tap((response: any) => {
+          // Salva il token e le informazioni dell'utente nel localStorage
           localStorage.setItem('token', response.token);
-          console.log('Token:', response.token);
+          localStorage.setItem('user', JSON.stringify(response.user));
+          // Aggiorna le proprietà private
+          this.token = response.token;
+          this.user = response.user;
         })
       );
   }
+
   isLoggedIn(): boolean {
     // Verifica se il token è presente nel localStorage o in un altro luogo
     return !!localStorage.getItem('token');
   }
-  setToken(token: string): void {
-    this.token = token;
+
+  getUser(): any | null {
+    // Ottieni le informazioni dell'utente dal localStorage
+    const userString = localStorage.getItem('user');
+    return userString ? JSON.parse(userString) : null;
   }
 
   getToken(): string | null {
-    return this.token;
+    // Ottieni il token dal localStorage
+    return localStorage.getItem('token');
   }
 
   isAuthenticated(): boolean {
+    // Verifica se l'utente è autenticato controllando la presenza del token
     return !!this.token;
   }
 
   logout(): void {
+    // Rimuovi il token e le informazioni dell'utente dal localStorage
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    // Reimposta le proprietà private
     this.token = null;
+    this.user = null;
   }
 }
