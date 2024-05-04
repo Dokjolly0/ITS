@@ -31,6 +31,31 @@ export const show_todo = async (
   }
 };
 
+// export const add_todo = async (
+//   req: TypedRequest<Add_todo_dto>,
+//   res: Response,
+//   next: NextFunction
+// ) => {
+//   try {
+//     const user = req.user!;
+//     const { title, dueDate, assignedTo } = req.body;
+
+//     const TodoObject = {
+//       title,
+//       dueDate,
+//       createdBy: user.id!,
+//       assignedTo: assignedTo,
+//     };
+
+//     if (title === undefined) throw new Error("Il titolo è obbligatorio");
+
+//     const newTodo = await TodoService.add_todo(TodoObject, user.id!);
+//     res.status(201).json(newTodo);
+//   } catch (err: any) {
+//     if (err.message === "Il titolo è obbligatorio")
+//       res.status(400).json({ "Errore: ": "Il titolo è obbligatorio" });
+//   }
+// };
 export const add_todo = async (
   req: TypedRequest<Add_todo_dto>,
   res: Response,
@@ -43,13 +68,12 @@ export const add_todo = async (
     const TodoObject = {
       title,
       dueDate,
-      createdBy: user.id!,
       assignedTo: assignedTo,
     };
 
     if (title === undefined) throw new Error("Il titolo è obbligatorio");
 
-    const newTodo = await TodoService.add_todo(TodoObject, user.id!);
+    const newTodo = await TodoService.add_todo(TodoObject);
     res.status(201).json(newTodo);
   } catch (err: any) {
     if (err.message === "Il titolo è obbligatorio")

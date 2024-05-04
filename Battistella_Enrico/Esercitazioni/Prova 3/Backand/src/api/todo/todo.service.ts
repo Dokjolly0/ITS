@@ -33,11 +33,18 @@ export class TodoService {
     return todos; // Restituisce i todo trovati
   }
 
+  // //Partial è un tipo di TypeScript che crea un nuovo tipo con tutti i campi di un altro tipo impostati come obbligatori.
+  // async add_todo(TodoObject, userId): Promise<Todo> {
+  //   const newTodo = await TodoModel.create({
+  //     ...TodoObject,
+  //     userId,
+  //   });
+  //   return newTodo;
+  // }
   //Partial è un tipo di TypeScript che crea un nuovo tipo con tutti i campi di un altro tipo impostati come obbligatori.
-  async add_todo(TodoObject, userId): Promise<Todo> {
+  async add_todo(TodoObject): Promise<Todo> {
     const newTodo = await TodoModel.create({
       ...TodoObject,
-      userId,
     });
     return newTodo;
   }
