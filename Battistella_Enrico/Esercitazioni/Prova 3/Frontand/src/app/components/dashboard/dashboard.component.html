@@ -1,15 +1,61 @@
-<div class="dashboard">
-  <h2>Welcome to the Dashboard</h2>
-  <div class="widgets">
-    <!-- Inserisci qui i tuoi widget -->
-    <div class="widget">
-      <h3>Widget 1</h3>
-      <p>Contenuto del Widget 1</p>
-    </div>
-    <div class="widget">
-      <h3>Widget 2</h3>
-      <p>Contenuto del Widget 2</p>
-    </div>
-    <!-- Aggiungi altri widget come necessario -->
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
+          alt="User Icon"
+          class="user-icon"
+        />
+        <span class="profile-name">Nome Profilo</span>
+      </div>
+      <ul class="navbar-nav">
+        <li><a href="#" class="btn btn-logout">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li>
+          <div class="todo-item">
+            <a class="btn btn-view-todo">Visualizza i Todo</a>
+            <div class="todo-options">
+              <span class="option-label">Visualizza completati</span>
+              <label class="toggle-switch">
+                <input type="checkbox" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </li>
+        <li><a class="btn btn-add-todo">Aggiungere un Todo</a></li>
+        <li>
+          <a class="btn btn-flag-completed">Flagga Completato</a>
+        </li>
+        <li>
+          <a class="btn btn-flag-incomplete">Flagga Non Completato</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Content Goes Here -->
+    </main>
+    <script>
+      document
+        .querySelector(".btn-view-todo")
+        .addEventListener("click", function () {
+          console.log("Bottone cliccato");
+        });
+    </script>
+  </body>
+</html>

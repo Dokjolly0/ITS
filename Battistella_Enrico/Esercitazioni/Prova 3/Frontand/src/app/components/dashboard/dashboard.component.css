@@ -1,20 +1,178 @@
-.dashboard {
-  padding: 20px;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.widgets {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.widget {
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.navbar-nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Sidebar Styles */
+.sidebar {
   background-color: #f4f4f4;
+  width: 200px;
+  height: 100vh;
+  float: left;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.widget h3 {
-  margin-top: 0;
+.sidebar-menu li a:hover {
+  background-color: #ddd;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Specific Button Styles */
+.btn.btn-view-todo {
+  background-color: #66ccff;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.btn.btn-logout {
+  background-color: #ff4d4d;
+  color: #fff;
+}
+
+.btn.btn-add-todo {
+  background-color: #99ff99;
+  color: #333;
+}
+
+.btn.btn-flag-completed {
+  background-color: #ffcc66;
+  color: #333;
+}
+
+.btn.btn-flag-incomplete {
+  background-color: #be18e3bc;
+  color: #fff;
+}
+
+/* Todo Options Styles */
+.todo-options {
+  display: flex;
+  align-items: center;
+}
+
+.option-label {
+  margin-right: 5px; /* Riduciamo il margine */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px; /* Riduciamo la larghezza */
+  height: 24px; /* Riduciamo l'altezza */
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px; /* Modifichiamo il bordo per renderlo più arrotondato */
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; /* Modifichiamo l'altezza */
+  width: 20px; /* Modifichiamo la larghezza */
+  left: 2px; /* Regoliamo la posizione */
+  bottom: 2px; /* Regoliamo la posizione */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #2196f3;
+}
+
+.toggle-switch input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(16px); /* Modifichiamo la posizione */
 }
