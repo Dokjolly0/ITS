@@ -32,8 +32,20 @@ todo_schema.set("toJSON", {
       dueDate: ret.dueDate,
       completed: ret.completed,
       expired: ret.expired,
-      createdBy: ret.createdBy,
-      assignedTo: ret.assignedTo,
+      createdBy: {
+        id: ret.createdBy.id,
+        firstName: ret.createdBy.firstName,
+        lastName: ret.createdBy.lastName,
+        picture: ret.createdBy.picture,
+        fullName: ret.createdBy.fullName,
+      },
+      assignedTo: {
+        id: ret.createdBy.id,
+        firstName: ret.createdBy.firstName,
+        lastName: ret.createdBy.lastName,
+        picture: ret.createdBy.picture,
+        fullName: ret.createdBy.fullName,
+      },
     };
 
     if (ret._id) {
@@ -46,7 +58,6 @@ todo_schema.set("toJSON", {
     }
 
     //console.log("Oggetto JSON senza _id e __v:", orderedFields);
-
     return orderedFields;
   },
 });

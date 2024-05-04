@@ -26,36 +26,11 @@ export const show_todo = async (
     const todo = await TodoService.show_todo(user.id!, { completed });
     res.status(200).json(todo);
   } catch (error: any) {
-    if (error.message === "Iser id non valido")
+    if (error.message === "User id non valido")
       res.status(400).json({ "Errore: ": "Iser id non valido" });
   }
 };
 
-// export const add_todo = async (
-//   req: TypedRequest<Add_todo_dto>,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   try {
-//     const user = req.user!;
-//     const { title, dueDate, assignedTo } = req.body;
-
-//     const TodoObject = {
-//       title,
-//       dueDate,
-//       createdBy: user.id!,
-//       assignedTo: assignedTo,
-//     };
-
-//     if (title === undefined) throw new Error("Il titolo è obbligatorio");
-
-//     const newTodo = await TodoService.add_todo(TodoObject, user.id!);
-//     res.status(201).json(newTodo);
-//   } catch (err: any) {
-//     if (err.message === "Il titolo è obbligatorio")
-//       res.status(400).json({ "Errore: ": "Il titolo è obbligatorio" });
-//   }
-// };
 export const add_todo = async (
   req: TypedRequest<Add_todo_dto>,
   res: Response,
@@ -68,12 +43,14 @@ export const add_todo = async (
     const TodoObject = {
       title,
       dueDate,
+      createdBy: user.id!,
       assignedTo: assignedTo,
     };
 
     if (title === undefined) throw new Error("Il titolo è obbligatorio");
 
-    const newTodo = await TodoService.add_todo(TodoObject);
+    const newTodo = await TodoService.add_todo(TodoObject, user.id!);
+
     res.status(201).json(newTodo);
   } catch (err: any) {
     if (err.message === "Il titolo è obbligatorio")
