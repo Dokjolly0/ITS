@@ -6,7 +6,7 @@ import { Todo } from '../entity/todo.entity';
 @Injectable({
   providedIn: 'root',
 })
-export class TodoService {
+export class UserService {
   constructor(private http: HttpClient) {}
 
   getUserList(token: string): Observable<any> {

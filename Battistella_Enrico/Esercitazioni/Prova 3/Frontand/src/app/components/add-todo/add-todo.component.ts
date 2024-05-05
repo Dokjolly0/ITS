@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -9,7 +9,7 @@ import { TodoService } from '../../services/user.service';
 export class AddTodoComponent implements OnInit {
   availableUsers: string[] = [];
 
-  constructor(private todoService: TodoService) {} // Inietta il servizio TodoService nel costruttore
+  constructor(private userService: UserService) {} // Inietta il servizio TodoService nel costruttore
 
   ngOnInit(): void {
     this.getUserList(); // Chiama il metodo per ottenere la lista degli utenti disponibili
@@ -23,7 +23,7 @@ export class AddTodoComponent implements OnInit {
       return; // Esci dalla funzione se il token non è presente
     }
 
-    this.todoService.getUserList(token).subscribe(
+    this.userService.getUserList(token).subscribe(
       (response: any) => {
         if (!response || !response.users) {
           console.log(
