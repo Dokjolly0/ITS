@@ -1,0 +1,50 @@
+/* todo-card.component.css */
+
+.todo-card {
+  background-color: #f6ea0076;
+  border: 1px solid #f6ff00;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  width: 20vw;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-header h2 {
+  margin: 0;
+}
+
+.due-date {
+  color: #000000;
+}
+
+.todo-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.created-by,
+.assigned-to {
+  display: flex;
+  align-items: center;
+}
+
+.created-by img,
+.assigned-to img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.created-by span,
+.assigned-to span {
+  font-weight: bold;
+}
