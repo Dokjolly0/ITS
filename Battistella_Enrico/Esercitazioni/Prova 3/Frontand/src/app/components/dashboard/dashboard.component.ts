@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TodoService } from '../../services/todo.service';
 import { Router } from '@angular/router';
@@ -10,6 +17,9 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   fullName: string = '';
+  isChecked: boolean = false; // Dichiarazione della variabile isChecked come variabile di istanza
+  @ViewChild('completedCheckbox')
+  completedCheckbox!: ElementRef<HTMLInputElement>;
 
   constructor(
     private authService: AuthService,
@@ -18,12 +28,36 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Recupera il nome completo dell'utente dopo il login
     this.fullName = this.todoService.getUserFullName();
   }
 
+  ngAfterViewInit(): void {
+    const checkboxElement: HTMLInputElement =
+      this.completedCheckbox.nativeElement;
+
+    checkboxElement.addEventListener('change', () => {
+      // Aggiorna la variabile isChecked quando lo stato del checkbox cambia
+      this.isChecked = checkboxElement.checked;
+      console.log('Checkbox selezionato:', this.isChecked);
+    });
+  }
+
+  // Metodi per gestire i clic sui pulsanti
   onClickViewTodo(): void {
-    alert('Hai cliccato sul pulsante "Visualizza Todo"');
+    // Assume che il token sia già disponibile come una stringa
+    const token = localStorage.getItem('token');
+
+    // Chiama il metodo getTodo del servizio TodoService passando il token
+    this.todoService.getTodo(token!, this.isChecked).subscribe(
+      (response: any) => {
+        // Gestisci la risposta qui
+        console.log('Risultati ottenuti da getTodo:', response);
+      },
+      (error: any) => {
+        // Gestisci gli errori qui, se necessario
+        console.error('Errore durante il recupero dei todo:', error);
+      }
+    );
   }
 
   onClickAddTodo(): void {
@@ -40,23 +74,7 @@ export class DashboardComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/']); // Naviga verso la home page dopo il logout
+    this.router.navigate(['/']);
   }
 }
 console.log('Script caricato');
-
-// onClickViewTodo(): void {
-//   alert('Hai cliccato sul pulsante "Visualizza Todo"');
-// }
-
-// onClickAddTodo(): void {
-//   alert('Hai cliccato sul pulsante "Aggiungere un Todo"');
-// }
-
-// onClickFlagCompleted(): void {
-//   alert('Hai cliccato sul pulsante "Flagga Completato"');
-// }
-
-// onClickFlagIncomplete(): void {
-//   alert('Hai cliccato sul pulsante "Flagga Non Completato"');
-// }
