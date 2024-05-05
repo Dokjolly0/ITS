@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, switchMap, tap } from 'rxjs';
+import { Todo } from '../entity/todo.entity';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,14 @@ export class TodoService {
 
     // Esegui la richiesta GET utilizzando l'URL costruito
     return this.http.get(url, { headers });
+  }
+
+  addTodo(token: string, todo: Todo) {
+    // Costruisci l'intestazione della richiesta HTTP con il token
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    // Esegui la richiesta POST per aggiungere un nuovo todo
+    return this.http.post('http://localhost:3000/api/todos', todo, { headers });
   }
 
   getUserFullName(): string {

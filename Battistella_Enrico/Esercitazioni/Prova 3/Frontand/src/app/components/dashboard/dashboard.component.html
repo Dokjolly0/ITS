@@ -58,21 +58,19 @@
       </ul>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
+    <!-- <main class="main-content"> -->
+    <!-- <div *ngIf="todos.length > 0"> -->
+    <!-- <app-todo-card></app-todo-card>
+      </div>
+    </main> -->
+
+    <!-- Main Content -->
     <main class="main-content">
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
-      <app-todo-card></app-todo-card>
+      <div *ngIf="todos.length > 0">
+        <app-todo-card [todos]="todos"></app-todo-card>
+      </div>
+      <app-add-todo *ngIf="isAdd"></app-add-todo>
     </main>
 
     <script>

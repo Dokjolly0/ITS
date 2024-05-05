@@ -5,6 +5,7 @@ import {
   SimpleChanges,
   ViewChild,
   ElementRef,
+  Input,
 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TodoService } from '../../services/todo.service';
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit {
   fullName: string = '';
   isChecked: boolean = false;
   todos: Todo[] = [];
+  isAdd: boolean = false;
 
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
@@ -47,6 +49,7 @@ export class DashboardComponent implements OnInit {
 
   // Metodi per gestire i clic sui pulsanti
   onClickViewTodo(): void {
+    this.isAdd = false;
     // Assume che il token sia già disponibile come una stringa
     const token = localStorage.getItem('token');
 
@@ -64,15 +67,20 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickAddTodo(): void {
-    alert('Hai cliccato sul pulsante "Aggiungere un Todo"');
+    this.isAdd = true;
+    this.todos = [];
   }
 
   onClickFlagCompleted(): void {
+    this.isAdd = false;
     alert('Hai cliccato sul pulsante "Flagga Completato"');
+    this.todos = [];
   }
 
   onClickFlagIncomplete(): void {
+    this.isAdd = false;
     alert('Hai cliccato sul pulsante "Flagga Non Completato"');
+    this.todos = [];
   }
 
   logout(): void {

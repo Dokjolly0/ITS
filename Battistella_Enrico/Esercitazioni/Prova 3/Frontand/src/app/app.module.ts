@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodoCardComponent } from './components/todo.card/todo.card.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TodoCardComponent } from './components/todo.card/todo.card.component';
     HomeComponent,
     DashboardComponent,
     TodoCardComponent,
+    AddTodoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

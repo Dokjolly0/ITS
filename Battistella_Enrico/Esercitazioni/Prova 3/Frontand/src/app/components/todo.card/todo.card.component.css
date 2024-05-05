@@ -6,13 +6,22 @@
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 20px;
-  width: 20vw;
+  width: calc(
+    45% - 20px
+  ); /* Imposta la larghezza in base al 45% del contenitore */
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .todo-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .todo-header h2 {
@@ -25,15 +34,14 @@
 
 .todo-details {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 12px;
+  flex-direction: column; /* Cambiato da "space-between" a "column" */
 }
 
 .created-by,
 .assigned-to {
   display: flex;
   align-items: center;
+  margin-bottom: 5px; /* Aggiunto margine inferiore per distanziare le righe */
 }
 
 .created-by img,
