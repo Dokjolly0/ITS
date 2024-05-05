@@ -7,6 +7,7 @@ import { Todo } from '../entity/todo.entity';
   providedIn: 'root',
 })
 export class TodoService {
+  private sharedData: any;
   constructor(private http: HttpClient) {}
 
   getTodo(token: string, completed: boolean): Observable<any> {
@@ -30,6 +31,10 @@ export class TodoService {
 
     // Esegui la richiesta POST per aggiungere un nuovo todo
     return this.http.post('http://localhost:3000/api/todos', todo, { headers });
+  }
+
+  getSharedData(data: any) {
+    return this.sharedData;
   }
 
   getUserFullName(): string {

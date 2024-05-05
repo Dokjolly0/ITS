@@ -13,6 +13,7 @@ export class AddTodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserList(); // Chiama il metodo per ottenere la lista degli utenti disponibili
+    const todoData = { title: '', description: 'Descrizione del nuovo Todo' };
   }
 
   getUserList(): void {
@@ -47,5 +48,18 @@ export class AddTodoComponent implements OnInit {
         );
       }
     );
+  }
+
+  todo = {
+    title: '',
+    description: '',
+    dueDate: '',
+    assignedTo: '',
+  };
+
+  onSubmit() {
+    console.log('Dati del form:', this.todo);
+
+    // Qui puoi inviare i dati a un servizio o fare altre operazioni necessarie con i dati del form
   }
 }
