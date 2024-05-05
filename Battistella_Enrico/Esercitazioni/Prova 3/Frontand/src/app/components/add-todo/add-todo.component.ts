@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -9,7 +10,12 @@ import { UserService } from '../../services/user.service';
 export class AddTodoComponent implements OnInit {
   availableUsers: string[] = [];
 
-  constructor(private userService: UserService) {} // Inietta il servizio TodoService nel costruttore
+  @Output() formSubmitted = new EventEmitter<void>();
+
+  constructor(
+    private userService: UserService,
+    private todoService: TodoService
+  ) {} // Inietta il servizio TodoService nel costruttore
 
   ngOnInit(): void {
     this.getUserList(); // Chiama il metodo per ottenere la lista degli utenti disponibili
@@ -58,8 +64,9 @@ export class AddTodoComponent implements OnInit {
   };
 
   onSubmit() {
-    console.log('Dati del form:', this.todo);
-
+    console.log('(add)Dati del form:', this.todo);
+    this.todoService.setSharedData(this.todo); // Condividi i dati del form con il servizio TodoService
+    this.formSubmitted.emit();
     // Qui puoi inviare i dati a un servizio o fare altre operazioni necessarie con i dati del form
   }
 }

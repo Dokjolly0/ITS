@@ -66,9 +66,21 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  data: any = {};
   onClickAddTodo(): void {
     this.isAdd = true;
     this.todos = [];
+    this.data = this.todoService.getSharedData();
+
+    console.log(this.data);
+    this.onAddTodoSubmitted();
+
+    //Il problema è che gli passi i dati quando clicchi sul pulsante ancora prima che l'utente possa inserire i dati
+  }
+
+  onAddTodoSubmitted() {
+    // Logica da eseguire quando il form nel componente AddTodoComponent viene inviato
+    console.log('Form submitted in AddTodoComponent');
   }
 
   onClickFlagCompleted(): void {

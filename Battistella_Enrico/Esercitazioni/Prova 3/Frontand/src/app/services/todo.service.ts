@@ -33,7 +33,11 @@ export class TodoService {
     return this.http.post('http://localhost:3000/api/todos', todo, { headers });
   }
 
-  getSharedData(data: any) {
+  setSharedData(data: any) {
+    this.sharedData = data;
+  }
+
+  getSharedData() {
     return this.sharedData;
   }
 
