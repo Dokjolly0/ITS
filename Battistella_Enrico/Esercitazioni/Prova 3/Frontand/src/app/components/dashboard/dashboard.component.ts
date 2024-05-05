@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TodoService } from '../../services/todo.service';
+import { Todo } from '../../entity/todo.entity';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +18,9 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   fullName: string = '';
-  isChecked: boolean = false; // Dichiarazione della variabile isChecked come variabile di istanza
+  isChecked: boolean = false;
+  todos: Todo[] = [];
+
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
 
@@ -38,7 +41,7 @@ export class DashboardComponent implements OnInit {
     checkboxElement.addEventListener('change', () => {
       // Aggiorna la variabile isChecked quando lo stato del checkbox cambia
       this.isChecked = checkboxElement.checked;
-      console.log('Checkbox selezionato:', this.isChecked);
+      //console.log('Checkbox selezionato:', this.isChecked);
     });
   }
 
@@ -49,12 +52,12 @@ export class DashboardComponent implements OnInit {
 
     // Chiama il metodo getTodo del servizio TodoService passando il token
     this.todoService.getTodo(token!, this.isChecked).subscribe(
-      (response: any) => {
-        // Gestisci la risposta qui
-        console.log('Risultati ottenuti da getTodo:', response);
+      (response: Todo[]) => {
+        // Assegna i todo recuperati all'array todos
+        this.todos = response;
+        console.log('Todo recuperati:', this.todos);
       },
       (error: any) => {
-        // Gestisci gli errori qui, se necessario
         console.error('Errore durante il recupero dei todo:', error);
       }
     );
