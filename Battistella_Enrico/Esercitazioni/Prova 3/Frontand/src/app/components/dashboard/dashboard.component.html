@@ -59,19 +59,9 @@
     </aside>
 
     <!-- Main Content -->
-    <!-- <main class="main-content"> -->
-    <!-- <div *ngIf="todos.length > 0"> -->
-    <!-- <app-todo-card></app-todo-card>
-      </div>
-    </main> -->
-
-    <!-- Main Content -->
     <main class="main-content">
       <div *ngIf="todos.length > 0">
-        <app-todo-card
-          [todos]="todos"
-          (formSubmitted)="onAddTodoSubmitted()"
-        ></app-todo-card>
+        <app-todo-card [todos]="todos"></app-todo-card>
       </div>
       <app-add-todo *ngIf="isAdd"></app-add-todo>
     </main>

@@ -8,5 +8,6 @@ import { Todo } from '../../entity/todo.entity';
 })
 export class TodoCardComponent {
   @Input() todos: Todo[] = []; // Dichiarazione della proprietà 'todos' come input con inizializzazione
+
   description = false; // Dichiarazione della proprietà 'description' con inizializzazione
 }

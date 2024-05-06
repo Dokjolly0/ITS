@@ -56,12 +56,20 @@ export const add = async (
     const newUser = await userService.add(userData, credentials);
 
     res.json(newUser);
-  } catch (e) {
+  } catch (e: any) {
     if (e instanceof UserExistsError) {
       res.status(400);
       res.send(e.message);
     } else {
-      next(e);
+      if (e.message === "Esiste già un utente con lo stesso nome e cognome.") {
+        res.status(400);
+        res.send(e.message);
+      } else {
+        res.status(500).json({
+          "Internal Server Error":
+            "The server encountered an internal error" + e.message,
+        });
+      }
     }
   }
 };

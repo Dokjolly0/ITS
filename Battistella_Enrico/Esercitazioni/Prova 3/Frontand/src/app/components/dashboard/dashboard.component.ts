@@ -18,10 +18,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  fullName: string = '';
-  isChecked: boolean = false;
   todos: Todo[] = [];
+  fullName: string = '';
   isAdd: boolean = false;
+  isChecked: boolean = false;
 
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fullName = this.todoService.getUserFullName();
+    console.log("Nome completo dell'utente:", this.fullName);
   }
 
   ngAfterViewInit(): void {
@@ -73,14 +74,8 @@ export class DashboardComponent implements OnInit {
     this.data = this.todoService.getSharedData();
 
     console.log(this.data);
-    this.onAddTodoSubmitted();
 
     //Il problema è che gli passi i dati quando clicchi sul pulsante ancora prima che l'utente possa inserire i dati
-  }
-
-  onAddTodoSubmitted() {
-    // Logica da eseguire quando il form nel componente AddTodoComponent viene inviato
-    console.log('Form submitted in AddTodoComponent');
   }
 
   onClickFlagCompleted(): void {

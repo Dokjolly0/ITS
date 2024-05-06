@@ -55,4 +55,15 @@ export class TodoService {
     const userJson = localStorage.getItem('user');
     return userJson ? JSON.parse(userJson) : null;
   }
+
+  findUserByFullName(token: string, fullName: string) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = 'http://localhost:3000/api/users/user/:fullName'; // URL con :fullName come placeholder
+
+    // Definisci il valore di fullName come parametro nella richiesta
+    const params = { fullName: fullName };
+
+    // Esegui la richiesta GET passando i parametri
+    return this.http.get(url, { headers, params });
+  }
 }

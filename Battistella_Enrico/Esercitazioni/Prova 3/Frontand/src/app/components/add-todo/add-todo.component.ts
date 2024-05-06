@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { TodoService } from '../../services/todo.service';
+import { User } from '../../entity/user.entity';
 
 @Component({
   selector: 'app-add-todo',
@@ -9,6 +10,8 @@ import { TodoService } from '../../services/todo.service';
 })
 export class AddTodoComponent implements OnInit {
   availableUsers: string[] = [];
+  token = localStorage.getItem('token');
+  user = localStorage.getItem('user');
 
   @Output() formSubmitted = new EventEmitter<void>();
 
@@ -19,7 +22,6 @@ export class AddTodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserList(); // Chiama il metodo per ottenere la lista degli utenti disponibili
-    const todoData = { title: '', description: 'Descrizione del nuovo Todo' };
   }
 
   getUserList(): void {
@@ -56,17 +58,80 @@ export class AddTodoComponent implements OnInit {
     );
   }
 
-  todo = {
+  todo: any = {
     title: '',
     description: '',
     dueDate: '',
+    createBy: JSON.parse(this.user!),
     assignedTo: '',
   };
 
   onSubmit() {
+    const value = '';
     console.log('(add)Dati del form:', this.todo);
     this.todoService.setSharedData(this.todo); // Condividi i dati del form con il servizio TodoService
-    this.formSubmitted.emit();
-    // Qui puoi inviare i dati a un servizio o fare altre operazioni necessarie con i dati del form
+    this.formSubmitted.emit(); // Emit an event to notify parent component
+    console.log(this.todo);
+
+    //#region Trova l'id dell'utente per fare assignedTo
+    const fullName_assignedTo = (
+      document.querySelector('#assignedTo') as HTMLSelectElement
+    ).value;
+    if (fullName_assignedTo) {
+      // Effettua la ricerca dell'utente per il nome completo
+      this.todoService
+        .findUserByFullName(this.token!, fullName_assignedTo)
+        .subscribe(
+          (user: any) => {
+            this.todo.assignedTo = user.id; // Assegna l'id dell'utente trovato alla proprietà assignedTo del todo
+            this.todo.assignedTo = value;
+
+            // Questa funzione verrà eseguita quando l'observable emetterà un valore
+            console.log(`Valore assignTo: ${this.todo.assignedTo}`);
+            console.log('Todo trovato:', this.todo);
+            // Puoi fare qualsiasi altra operazione qui con l'utente trovato
+          },
+          (error: any) => {
+            // Questa funzione verrà eseguita se si verifica un errore durante la chiamata
+            this.todo.assignedTo = undefined; // Assegna undefined alla proprietà assignedTo del todo
+            console.log('Non hai scelto nessun utente');
+          }
+        );
+    }
+    console.log('assignedTo:', this.todo);
+
+    //Titolo
+    const title = (document.querySelector('#title') as HTMLInputElement).value;
+    if (title) this.todo.title = title;
+    else {
+      alert('Inserisci un titolo');
+      return;
+    }
+
+    //Descrizione
+    const description = (
+      document.querySelector('#description') as HTMLInputElement
+    ).value;
+    if (description) this.todo.description = description;
+    else this.todo.description = undefined;
+
+    //Data di scadenza
+    const dueDate = (document.querySelector('#dueDate') as HTMLInputElement)
+      .value;
+    if (dueDate) this.todo.dueDate = dueDate;
+    else this.todo.dueDate = undefined;
+
+    //#endregion
+    console.log('Dati del form:', this.todo);
+    this.todoService.addTodo(this.token!, this.todo).subscribe(
+      (response: any) => {
+        console.log('Todo aggiunto:', response);
+        this.formSubmitted.emit(); // Emit an event to notify parent component
+      },
+      (error: any) => {
+        console.error("Errore durante l'aggiunta del todo:", error);
+        console.log(`Todo con errore: `, this.todo);
+      }
+    );
   }
 }
