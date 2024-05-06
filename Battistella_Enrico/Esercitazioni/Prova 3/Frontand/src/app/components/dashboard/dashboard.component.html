@@ -37,7 +37,7 @@
                 <input
                   type="checkbox"
                   id="completed"
-                  [(ngModel)]="isChecked"
+                  [(ngModel)]="completed"
                   (change)="onChangeCompleted()"
                 />
                 <span class="toggle-slider"></span>
@@ -66,13 +66,18 @@
     <!-- Main Content -->
     <main class="main-content">
       <!-- Visualizza i Todo -->
-      <div *ngIf="todos.length > 0">
+      <div *ngIf="todos.length > 0 && isView">
         <app-todo-card [todos]="todos"></app-todo-card>
       </div>
 
       <!-- Aggiungi un Todo -->
       <div *ngIf="isAdd">
         <app-add-todo></app-add-todo>
+      </div>
+
+      <!-- Flagga Completato -->
+      <div *ngIf="isCheck">
+        <app-change-completed></app-change-completed>
       </div>
     </main>
 

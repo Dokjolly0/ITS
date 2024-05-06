@@ -86,6 +86,7 @@ export class AddTodoComponent implements OnInit {
       document.querySelector('#assignedTo') as HTMLSelectElement
     ).value;
     if (fullName_assignedTo) {
+      console.log('Hai scelto:', fullName_assignedTo);
       this.todoService
         .findUserByFullName(this.token!, fullName_assignedTo)
         .subscribe(

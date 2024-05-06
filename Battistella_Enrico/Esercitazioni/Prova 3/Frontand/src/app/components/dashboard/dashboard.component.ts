@@ -20,10 +20,11 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   todos: Todo[] = [];
   fullName: string = '';
+  completed: boolean = false;
 
   isView: boolean = false;
   isAdd: boolean = false;
-  isChecked: boolean = false;
+  isCheck: boolean = false;
   isUncheck: boolean = false;
 
   @ViewChild('completedCheckbox')
@@ -40,17 +41,6 @@ export class DashboardComponent implements OnInit {
     console.log("Nome completo dell'utente:", this.fullName);
   }
 
-  ngAfterViewInit(): void {
-    const checkboxElement: HTMLInputElement =
-      this.completedCheckbox.nativeElement;
-
-    checkboxElement.addEventListener('change', () => {
-      // Aggiorna la variabile isChecked quando lo stato del checkbox cambia
-      this.isChecked = checkboxElement.checked;
-      //console.log('Checkbox selezionato:', this.isChecked);
-    });
-  }
-
   onChangeCompleted(): void {
     // Aggiorna i todo quando lo stato del checkbox cambia
     this.onClickViewTodo();
@@ -60,14 +50,14 @@ export class DashboardComponent implements OnInit {
   onClickViewTodo(): void {
     this.isView = true;
     this.isAdd = false;
-    //this.isChecked = false;
-    //this.isUncheck = false;
+    this.isCheck = false;
+    this.isUncheck = false;
 
     // Assume che il token sia già disponibile come una stringa
     const token = localStorage.getItem('token');
 
     // Chiama il metodo getTodo del servizio TodoService passando il token
-    this.todoService.getTodo(token!, this.isChecked).subscribe(
+    this.todoService.getTodo(token!, this.completed).subscribe(
       (response: Todo[]) => {
         // Assegna i todo recuperati all'array todos
         this.todos = response;
@@ -83,7 +73,7 @@ export class DashboardComponent implements OnInit {
   onClickAddTodo(): void {
     this.isView = false;
     this.isAdd = true;
-    this.isChecked = false;
+    this.completed = false;
     this.isUncheck = false;
 
     this.todos = [];
@@ -97,10 +87,9 @@ export class DashboardComponent implements OnInit {
   onClickFlagCompleted(): void {
     this.isView = false;
     this.isAdd = false;
-    this.isChecked = true;
+    this.isCheck = true;
     this.isUncheck = false;
 
-    alert('Hai cliccato sul pulsante "Flagga Completato"');
     this.todos = [];
   }
 
