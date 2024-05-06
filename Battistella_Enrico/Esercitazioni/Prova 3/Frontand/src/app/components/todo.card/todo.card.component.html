@@ -3,6 +3,11 @@
     <div class="todo-header">
       <h2>{{ todo.title }}</h2>
     </div>
+
+    <div class="todo-id">
+      <span>ID: {{ todo.id }}</span>
+    </div>
+
     <div class="todo-details">
       <div class="user-info">
         <div class="created-by">
@@ -13,6 +18,7 @@
           />
           <span>{{ todo.createdBy.fullName }}</span>
         </div>
+
         <div class="assigned-to">
           <span>Assegnato a: </span>
           <img
@@ -22,12 +28,14 @@
           <span>{{ todo.assignedTo?.firstName }}</span>
         </div>
       </div>
+
       <!-- Verifica se la descrizione esiste prima di mostrarla -->
       <div *ngIf="description" class="description">
         <br />
         <span>Descrizione: {{ description }}</span>
       </div>
       <br />
+
       <div class="completion-info">
         <div>
           <span
@@ -36,6 +44,7 @@
           >
         </div>
         <br />
+
         <div class="due-date">
           <span
             >Scadenza:

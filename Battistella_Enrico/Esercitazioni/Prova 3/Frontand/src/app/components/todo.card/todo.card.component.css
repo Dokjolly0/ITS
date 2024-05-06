@@ -38,10 +38,11 @@
 }
 
 .created-by,
-.assigned-to {
+.assigned-to,
+.todo-id {
   display: flex;
   align-items: center;
-  margin-bottom: 5px; /* Aggiunto margine inferiore per distanziare le righe */
+  margin-bottom: 8px; /* Aggiunto margine inferiore per distanziare le righe */
 }
 
 .created-by img,
@@ -53,6 +54,7 @@
 }
 
 .created-by span,
-.assigned-to span {
+.assigned-to span,
+.todo-id span {
   font-weight: bold;
 }
