@@ -166,3 +166,19 @@ export const assign_todo = async (
     }
   }
 };
+
+export const get_by_title = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = req.user!;
+    const title = req.query.title as string;
+    const todo = await TodoService.get_by_title(title, user.id!);
+    res.status(200).json(todo);
+  } catch (error: any) {
+    if (error.message === "Todo non trovato")
+      res.status(400).json({ "Errore: ": "Todo non trovato" });
+  }
+};

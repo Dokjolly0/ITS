@@ -1,0 +1,55 @@
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.search {
+  display: flex;
+  flex-direction: column; /* Cambia la direzione del layout in verticale */
+  align-items: center; /* Allinea i form al centro rispetto all'asse verticale */
+  margin-bottom: 10px;
+}
+
+.todo-form {
+  background-color: #fff;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: 0px 0px -5px -5px rgba(0, 0, 0, 0.1) inset;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  width: 260px;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  width: 175px; /* Imposta larghezza fissa per uniformare i bottoni */
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+#submit-form {
+  position: relative;
+  top: -30px;
+}

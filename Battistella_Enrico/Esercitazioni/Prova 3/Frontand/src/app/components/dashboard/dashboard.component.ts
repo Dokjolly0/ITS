@@ -20,8 +20,11 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   todos: Todo[] = [];
   fullName: string = '';
+
+  isView: boolean = false;
   isAdd: boolean = false;
   isChecked: boolean = false;
+  isUncheck: boolean = false;
 
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
@@ -48,9 +51,18 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  onChangeCompleted(): void {
+    // Aggiorna i todo quando lo stato del checkbox cambia
+    this.onClickViewTodo();
+  }
+
   // Metodi per gestire i clic sui pulsanti
   onClickViewTodo(): void {
+    this.isView = true;
     this.isAdd = false;
+    //this.isChecked = false;
+    //this.isUncheck = false;
+
     // Assume che il token sia già disponibile come una stringa
     const token = localStorage.getItem('token');
 
@@ -69,7 +81,11 @@ export class DashboardComponent implements OnInit {
 
   data: any = {};
   onClickAddTodo(): void {
+    this.isView = false;
     this.isAdd = true;
+    this.isChecked = false;
+    this.isUncheck = false;
+
     this.todos = [];
     this.data = this.todoService.getSharedData();
 
@@ -79,7 +95,11 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickFlagCompleted(): void {
+    this.isView = false;
     this.isAdd = false;
+    this.isChecked = true;
+    this.isUncheck = false;
+
     alert('Hai cliccato sul pulsante "Flagga Completato"');
     this.todos = [];
   }

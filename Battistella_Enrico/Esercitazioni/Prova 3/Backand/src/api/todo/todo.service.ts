@@ -108,6 +108,12 @@ export class TodoService {
 
     return todo.populate("createdBy assignedTo");
   }
+
+  async get_by_title(title: string, userId: string) {
+    const todo = await TodoModel.findOne({ title, createdBy: userId });
+    if (!todo) throw new Error("Todo non trovato");
+    return todo;
+  }
 }
 
 export default new TodoService();

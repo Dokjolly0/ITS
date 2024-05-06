@@ -66,4 +66,12 @@ export class TodoService {
     // Esegui la richiesta GET passando i parametri
     return this.http.get(url, { headers, params });
   }
+
+  checkTodo(token: string, id: string) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `http://localhost:3000/api/todos/${id}/check`;
+
+    // Esegui la richiesta PATCH per contrassegnare il todo come completato
+    return this.http.patch(url, {}, { headers });
+  }
 }
