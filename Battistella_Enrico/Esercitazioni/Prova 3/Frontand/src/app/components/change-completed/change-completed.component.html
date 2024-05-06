@@ -11,17 +11,19 @@
         <button class="search-btn">Cerca</button>
       </form>
     </div>
-    <div class="todo-form">
+    <div class="submit">
       <!-- Utilizza la stessa classe per entrambi i form -->
-      <form (ngSubmit)="onSubmit()">
-        <input
-          type="text"
-          class="todo-input"
-          id="submit"
-          placeholder="L'id del todo da fleggare completato"
-        />
-        <button class="search-btn">Cerca</button>
-      </form>
+      <div class="todo-form">
+        <form (ngSubmit)="onSubmit()">
+          <input
+            type="text"
+            class="todo-input"
+            id="submit"
+            placeholder="L'id del todo da fleggare completato"
+          />
+          <button class="search-btn">Cerca</button>
+        </form>
+      </div>
     </div>
   </div>
 

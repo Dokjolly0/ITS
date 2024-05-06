@@ -73,7 +73,7 @@ export class DashboardComponent implements OnInit {
   onClickAddTodo(): void {
     this.isView = false;
     this.isAdd = true;
-    this.completed = false;
+    this.isCheck = false;
     this.isUncheck = false;
 
     this.todos = [];

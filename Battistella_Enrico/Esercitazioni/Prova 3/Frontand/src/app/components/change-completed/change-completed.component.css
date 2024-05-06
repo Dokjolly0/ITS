@@ -46,3 +46,8 @@
 .search-btn:hover {
   background-color: #0056b3;
 }
+
+.submit {
+  position: relative;
+  top: -30px;
+}

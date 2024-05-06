@@ -16,5 +16,5 @@ export class ChangeCompletedComponent {
     console.log('Titolo:', title);
   }
   onSubmit() {}
-  id = (document.getElementById('id') as HTMLInputElement).value;
+  //id = (document.getElementById('id') as HTMLInputElement).value;
 }
