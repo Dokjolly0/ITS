@@ -37,7 +37,14 @@
         </div>
         <br />
         <div class="due-date">
-          <span>Scadenza: {{ todo.dueDate | date : "dd/MM/yyyy" }}</span>
+          <span
+            >Scadenza:
+            {{
+              todo.dueDate
+                ? (todo.dueDate | date : "dd/MM/yyyy")
+                : "Nessuna scadenza"
+            }}</span
+          >
         </div>
       </div>
     </div>

@@ -6,6 +6,6 @@ export interface Todo {
   dueDate?: Date;
   completed?: Boolean;
   expired?: Boolean;
-  createdBy: string;
-  assignedTo?: string;
+  createdBy: User;
+  assignedTo?: User;
 }
