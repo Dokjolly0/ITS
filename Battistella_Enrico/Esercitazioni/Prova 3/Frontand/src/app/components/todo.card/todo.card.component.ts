@@ -10,7 +10,7 @@ export class TodoCardComponent implements OnInit {
   @Input() todos: Todo[] = []; // Dichiarazione della proprietà 'todos' come input con inizializzazione
 
   ngOnInit(): void {
-    console.log('Todos:', this.todos);
+    console.log('Lista dei todo:', this.todos);
   }
 
   description = false; // Dichiarazione della proprietà 'description' con inizializzazione
