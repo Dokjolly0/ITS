@@ -85,16 +85,18 @@ export class AddTodoComponent implements OnInit {
     const fullName_assignedTo = (
       document.getElementById('assignedTo') as HTMLSelectElement
     ).value;
-    console.log('assignedTo:' + fullName_assignedTo);
     if (fullName_assignedTo) {
       console.log('Hai scelto:', fullName_assignedTo);
       this.todoService
         .findUserByFullName(this.token!, fullName_assignedTo)
         .subscribe(
           (user: any) => {
+            console.log('Todo prima di assignedTo: ', this.todo);
             this.todo.assignedTo = user.id;
-            // console.log(`Valore assignTo: ${this.todo.assignedTo}`);
-            // console.log('Todo trovato:', this.todo);
+            console.log(`Todo prima di assignedTo: `, this.todo);
+            console.log('user: ', user);
+            console.log('Todo: ', this.todo);
+
             this.saveTodo(); // Ora, dopo aver ottenuto l'ID dell'utente, possiamo salvare il todo
           },
           (error: any) => {
@@ -103,7 +105,6 @@ export class AddTodoComponent implements OnInit {
           }
         );
     } else {
-      //Fixa il bug assignTo obbligatorio
       console.log('Bug: Non hai scelto nessun utente');
       this.todo.assignedTo = undefined;
       this.saveTodo(); // Ora, dopo aver ottenuto l'ID dell'utente, possiamo salvare il todo
@@ -114,8 +115,8 @@ export class AddTodoComponent implements OnInit {
     // Aggiunta del todo
     this.todoService.addTodo(this.token!, this.todo).subscribe(
       (response: any) => {
+        console.log('Todo nel salvataggio: ', this.todo);
         console.log('Todo aggiunto:', response);
-        this.formSubmitted.emit();
       },
       (error: any) => {
         console.error("Errore durante l'aggiunta del todo:", error);

@@ -100,13 +100,22 @@ export class TodoService {
     const isTodo = await TodoModel.findById(id);
     // Verifica se il todo esiste
     if (!isTodo) throw new Error("Il todo non esiste");
-    // Verifica se l'utente che ha creato il todo è lo stesso che sta cercando di assegnarlo
-    if (todo.createdBy.toString() === userId) todo.assignedTo = assignedToUser;
-    else throw new Error("Non hai accesso a questo todo");
-    // Salva il todo aggiornato
-    await todo.save();
 
-    return todo.populate("createdBy assignedTo");
+    console.log("AssignToUser", assignedToUser);
+
+    // Verifica se l'utente che ha creato il todo è lo stesso che sta cercando di assegnarlo
+    if (todo.createdBy.toString() === userId)
+      todo.assignedTo = assignedToUser.id;
+    else throw new Error("Non hai accesso a questo todo");
+
+    //Aspetta che Popoli i campi createdBy e assignedTo
+    await todo.populate("createdBy assignedTo");
+
+    // Controlla se l'attributo assignedTo è stato modificato
+    if (todo.isModified("assignedTo")) await todo.save();
+    else console.log("Nessuna modifica all'assegnazione del todo.", todo);
+
+    return todo;
   }
 
   async get_by_title(title: string, userId: string) {
