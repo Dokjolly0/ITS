@@ -83,8 +83,9 @@ export class AddTodoComponent implements OnInit {
     else this.todo.description = description;
 
     const fullName_assignedTo = (
-      document.querySelector('#assignedTo') as HTMLSelectElement
+      document.getElementById('assignedTo') as HTMLSelectElement
     ).value;
+    console.log('assignedTo:' + fullName_assignedTo);
     if (fullName_assignedTo) {
       console.log('Hai scelto:', fullName_assignedTo);
       this.todoService
@@ -102,8 +103,10 @@ export class AddTodoComponent implements OnInit {
           }
         );
     } else {
-      console.log('Non hai scelto nessun utente');
-      return;
+      //Fixa il bug assignTo obbligatorio
+      console.log('Bug: Non hai scelto nessun utente');
+      this.todo.assignedTo = undefined;
+      this.saveTodo(); // Ora, dopo aver ottenuto l'ID dell'utente, possiamo salvare il todo
     }
   }
 
