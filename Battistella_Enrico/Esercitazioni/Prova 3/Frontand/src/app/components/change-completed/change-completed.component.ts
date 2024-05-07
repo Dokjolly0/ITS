@@ -48,15 +48,23 @@ export class ChangeCompletedComponent {
       }
     );
   }
+
   onComplete(statusTodo: boolean) {
     this.id = (document.getElementById('submit') as HTMLInputElement).value;
 
     this.todoService.updateTodo(this.token!, this.id, statusTodo).subscribe(
       (response: any) => {
         console.log('Todo aggiornato:', response);
+
+        // Svuota l'array todos
+        this.todos = [];
+
+        // Aggiungi il todo aggiornato all'array vuoto
+        this.todos.push(response);
       },
       (error: any) => {
-        console.error("Errore durante l'aggiornamento del todo:", error);
+        //console.error("Errore durante l'aggiornamento del todo:", error);
+        alert('Id non trovato');
       }
     );
   }
