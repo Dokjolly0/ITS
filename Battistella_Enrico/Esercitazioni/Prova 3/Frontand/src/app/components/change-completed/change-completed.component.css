@@ -21,6 +21,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  position: relative;
+  top: -20px;
 }
 
 .todo-input {
@@ -54,5 +56,32 @@
 
 .submit {
   position: relative;
-  top: -30px;
+  top: -50px;
+}
+
+.full-width-btn {
+  position: relative;
+  width: 520px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+.full-width-btn:hover {
+  position: relative;
+  background-color: #0056b3;
+  z-index: 1;
+}
+
+.searchAll {
+  width: 561.2px;
+  display: flex;
+  justify-content: center;
+  background: white;
 }
