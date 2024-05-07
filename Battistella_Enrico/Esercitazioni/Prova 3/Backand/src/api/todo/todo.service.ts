@@ -119,7 +119,10 @@ export class TodoService {
   }
 
   async get_by_title(title: string, userId: string) {
-    const todo = await TodoModel.find({ title: title, createdBy: userId });
+    const regex = new RegExp(title, "i"); // 'i' indica una ricerca non case-sensitive
+    const todo = await TodoModel.find({ title: regex, createdBy: userId })
+      .populate("createdBy")
+      .populate("assignedTo");
     if (!todo) throw new Error("Todo non trovato");
     console.log(todo);
     return todo;

@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
       (response: Todo[]) => {
         // Assegna i todo recuperati all'array todos
         this.todos = response;
-        console.log('Todo recuperati:', this.todos);
+        //console.log('Todo recuperati:', this.todos);
       },
       (error: any) => {
         console.error('Errore durante il recupero dei todo:', error);
