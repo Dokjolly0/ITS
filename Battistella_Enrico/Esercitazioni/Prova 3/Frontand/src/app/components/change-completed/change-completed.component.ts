@@ -26,7 +26,6 @@ export class ChangeCompletedComponent {
 
   onSubmitSearch() {
     this.title = (document.getElementById('title') as HTMLInputElement).value;
-    console.log('Titolo:', this.title);
     this.todoService.getTodoByTitle(this.token!, this.title).subscribe(
       (response: any) => {
         if (!response) {
@@ -34,7 +33,7 @@ export class ChangeCompletedComponent {
           return;
         } else if (!response.todos) {
           this.todos = response;
-          console.log('La risposta contiene:', response, this.todos);
+          console.log('La risposta contiene:', response);
           return;
         }
         this.todos = response.todos;
@@ -48,7 +47,7 @@ export class ChangeCompletedComponent {
       }
     );
   }
-  onSubmit() {
+  onComplete(completed: boolean) {
     this.id = (document.getElementById('submit') as HTMLInputElement).value;
     //console.log('ID:', this.id);
   }

@@ -76,7 +76,8 @@ export class TodoService {
 
   getTodoByTitle(token: string, title: string) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const url = `http://localhost:3000/api/todos/:${title}`;
+    // Sostituisci il parametro di percorso :title con il valore del titolo
+    const url = `http://localhost:3000/api/todos/${title}`;
 
     // Esegui la richiesta GET per ottenere i todo con il titolo specificato
     return this.http.get(url, { headers });
