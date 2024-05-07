@@ -18,6 +18,7 @@ export class ChangeCompletedComponent {
   isCheck: Boolean = false;
   isUncheck: Boolean = false;
   completed: boolean = true;
+  statusTodo: boolean = false;
 
   todos: Todo[] = [];
   token = localStorage.getItem('token');
@@ -47,9 +48,17 @@ export class ChangeCompletedComponent {
       }
     );
   }
-  onComplete(completed: boolean) {
+  onComplete(statusTodo: boolean) {
     this.id = (document.getElementById('submit') as HTMLInputElement).value;
-    //console.log('ID:', this.id);
+
+    this.todoService.updateTodo(this.token!, this.id, statusTodo).subscribe(
+      (response: any) => {
+        console.log('Todo aggiornato:', response);
+      },
+      (error: any) => {
+        console.error("Errore durante l'aggiornamento del todo:", error);
+      }
+    );
   }
 
   searchAll(): void {

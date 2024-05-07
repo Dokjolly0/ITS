@@ -82,4 +82,15 @@ export class TodoService {
     // Esegui la richiesta GET per ottenere i todo con il titolo specificato
     return this.http.get(url, { headers });
   }
+
+  updateTodo(token: string, id: string, completed: boolean) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const urlCheck = `http://localhost:3000/api/todos/${id}/check`;
+    const urlUncheck = `http://localhost:3000/api/todos/${id}/uncheck`;
+
+    // Esegui la richiesta PATCH per contrassegnare il todo come completato o non completato
+    return completed
+      ? this.http.patch(urlCheck, {}, { headers })
+      : this.http.patch(urlUncheck, {}, { headers });
+  }
 }
