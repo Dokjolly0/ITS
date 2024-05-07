@@ -40,11 +40,11 @@ todo_schema.set("toJSON", {
         fullName: ret.createdBy.fullName,
       },
       assignedTo: {
-        id: ret.createdBy.id,
-        firstName: ret.createdBy.firstName,
-        lastName: ret.createdBy.lastName,
-        picture: ret.createdBy.picture,
-        fullName: ret.createdBy.fullName,
+        id: ret.assignedTo.id,
+        firstName: ret.assignedTo.firstName,
+        lastName: ret.assignedTo.lastName,
+        picture: ret.assignedTo.picture,
+        fullName: ret.assignedTo.fullName,
       },
     };
 
