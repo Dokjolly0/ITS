@@ -30,7 +30,10 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   outline: none;
-  width: 260px;
+  width: 315px;
+}
+.todo-input:focus {
+  border-color: #007bff;
 }
 
 .search-btn {

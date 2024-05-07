@@ -10,11 +10,32 @@ import { Todo } from '../../entity/todo.entity';
 export class ChangeCompletedComponent {
   constructor(private todoService: TodoService) {}
   todos: Todo[] = [];
+  token = localStorage.getItem('token');
+  title: string = '';
+  id: string = '';
 
   onSubmitSearch() {
-    const title = (document.getElementById('title') as HTMLInputElement).value;
-    console.log('Titolo:', title);
+    this.title = (document.getElementById('title') as HTMLInputElement).value;
+    console.log('Titolo:', this.title);
+    this.todoService.getTodoByTitle(this.token!, this.title).subscribe(
+      (response: any) => {
+        if (!response || !response.todos) {
+          console.log('La risposta non contiene la lista dei todo:', response);
+          return;
+        }
+        this.todos = response.todos;
+        console.log('Lista dei todo:', this.todos);
+      },
+      (error: any) => {
+        console.error(
+          'Errore durante il recupero della lista dei todo:',
+          error
+        );
+      }
+    );
   }
-  onSubmit() {}
-  //id = (document.getElementById('id') as HTMLInputElement).value;
+  onSubmit() {
+    this.id = (document.getElementById('submit') as HTMLInputElement).value;
+    //console.log('ID:', this.id);
+  }
 }

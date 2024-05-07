@@ -119,8 +119,9 @@ export class TodoService {
   }
 
   async get_by_title(title: string, userId: string) {
-    const todo = await TodoModel.findOne({ title, createdBy: userId });
+    const todo = await TodoModel.find({ title: title, createdBy: userId });
     if (!todo) throw new Error("Todo non trovato");
+    console.log(todo);
     return todo;
   }
 }

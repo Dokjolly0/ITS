@@ -174,9 +174,11 @@ export const get_by_title = async (
 ) => {
   try {
     const user = req.user!;
-    const title = req.query.title as string;
+    const title = req.params.title as string;
     const todo = await TodoService.get_by_title(title, user.id!);
+    console.log("todo", todo);
     res.status(200).json(todo);
+    console.log(title, user.id);
   } catch (error: any) {
     if (error.message === "Todo non trovato")
       res.status(400).json({ "Errore: ": "Todo non trovato" });

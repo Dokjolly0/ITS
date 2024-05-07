@@ -73,4 +73,12 @@ export class TodoService {
     // Esegui la richiesta PATCH per contrassegnare il todo come completato
     return this.http.patch(url, {}, { headers });
   }
+
+  getTodoByTitle(token: string, title: string) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `http://localhost:3000/api/todos/title/${title}`;
+
+    // Esegui la richiesta GET per ottenere i todo con il titolo specificato
+    return this.http.get(url, { headers });
+  }
 }
