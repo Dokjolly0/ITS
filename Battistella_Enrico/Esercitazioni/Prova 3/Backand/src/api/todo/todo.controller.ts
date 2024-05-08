@@ -184,3 +184,27 @@ export const get_by_title = async (
       res.status(400).json({ "Errore: ": "Todo non trovato" });
   }
 };
+
+export const get_by_id = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = req.user!;
+    const id = req.params.id as string;
+    const todo = await TodoService.search_by_id(id, user.id!);
+    console.log("todo", todo, "id", id);
+    res.status(200).json(todo);
+  } catch (error: any) {
+    if (error.message === "Todo non trovato")
+      res.status(400).json({ "Errore: ": "Todo non trovato" });
+    else {
+      res.status(500).json({
+        errore: "InternalServerError",
+        messaggio:
+          "Il server ha riscontrato un errore interno." + error.message,
+      });
+    }
+  }
+};

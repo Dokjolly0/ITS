@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodoCardComponent } from './components/todo.card/todo.card.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { ChangeCompletedComponent } from './components/change-completed/change-completed.component';
+import { AssignedToComponent } from './components/assigned-to/assigned-to.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ChangeCompletedComponent } from './components/change-completed/change-c
     TodoCardComponent,
     AddTodoComponent,
     ChangeCompletedComponent,
+    AssignedToComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

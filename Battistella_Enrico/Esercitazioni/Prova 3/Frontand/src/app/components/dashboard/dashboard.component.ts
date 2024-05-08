@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   isView: boolean = false;
   isAdd: boolean = false;
   isCheck: boolean = false;
-  isUncheck: boolean = false;
+  isAssigned: boolean = false;
 
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
     this.isView = true;
     this.isAdd = false;
     this.isCheck = false;
-    this.isUncheck = false;
+    this.isAssigned = false;
 
     // Assume che il token sia già disponibile come una stringa
     const token = localStorage.getItem('token');
@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit {
     this.isView = false;
     this.isAdd = true;
     this.isCheck = false;
-    this.isUncheck = false;
+    this.isAssigned = false;
 
     this.todos = [];
     this.data = this.todoService.getSharedData();
@@ -88,14 +88,15 @@ export class DashboardComponent implements OnInit {
     this.isView = false;
     this.isAdd = false;
     this.isCheck = true;
-    this.isUncheck = false;
-
+    this.isAssigned = false;
     this.todos = [];
   }
 
-  onClickFlagIncomplete(): void {
+  onClickNewAssign(): void {
+    this.isView = false;
     this.isAdd = false;
-    alert('Hai cliccato sul pulsante "Flagga Non Completato"');
+    this.isCheck = false;
+    this.isAssigned = true;
     this.todos = [];
   }
 

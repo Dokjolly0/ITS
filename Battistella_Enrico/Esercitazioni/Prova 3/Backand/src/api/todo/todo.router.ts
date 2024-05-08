@@ -7,6 +7,7 @@ import {
   uncheck_todo,
   assign_todo,
   get_by_title,
+  get_by_id,
 } from "./todo.controller";
 import { validate } from "../../utils/validation-middleware";
 import { Add_todo_dto } from "./todo.dto";
@@ -19,25 +20,7 @@ router.post("/", validate(Add_todo_dto), add_todo);
 router.patch("/:id/check", check_todo);
 router.patch("/:id/uncheck", uncheck_todo);
 router.post("/:id/assign", assign_todo);
-router.get("/:title", get_by_title);
-
-// router.post("/:id/assign", async (req, res, next) => {
-//   try {
-//     await assign_todo(req, res, next);
-//   } catch (error: any) {
-//     if (error.message === "Utente non trovato")
-//       res.status(400).json({ "Errore: ": "Utente non trovato" });
-//     else if (error.message === "Todo non trovato")
-//       res.status(400).json({ "Errore: ": "Todo non trovato" });
-//     else if (error.message === "Id non valido")
-//       res.status(400).json({ "Errore: ": "Id non valido" });
-//     else {
-//       res.status(500).json({
-//         error: "InternalServerError",
-//         message: "The server encountered an internal error",
-//       });
-//     }
-//   }
-// });
+router.get("/title/:title", get_by_title);
+router.get("/id/:id", get_by_id);
 
 export default router;

@@ -127,6 +127,16 @@ export class TodoService {
     console.log(todo);
     return todo;
   }
+
+  async search_by_id(todoId: string, userId: string) {
+    const todo = await TodoModel.findById(todoId)
+      .populate("createdBy")
+      .populate("assignedTo");
+    if (!todo) throw new Error("Todo non trovato");
+    if (todo.createdBy.id?.toString() !== userId)
+      throw new Error("Non hai accesso a questo todo");
+    return todo;
+  }
 }
 
 export default new TodoService();

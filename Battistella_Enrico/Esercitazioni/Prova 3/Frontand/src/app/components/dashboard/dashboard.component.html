@@ -56,8 +56,8 @@
           >
         </li>
         <li>
-          <a class="btn btn-flag-incomplete" (click)="onClickFlagIncomplete()"
-            >Assegna todo
+          <a class="btn btn-flag-incomplete" (click)="onClickNewAssign()"
+            >Riassegna todo esistente
           </a>
         </li>
       </ul>
@@ -78,6 +78,11 @@
       <!-- Flagga Completato -->
       <div *ngIf="isCheck">
         <app-change-completed></app-change-completed>
+      </div>
+
+      <!-- Riassegna Todo -->
+      <div *ngIf="isAssigned">
+        <app-assigned-to></app-assigned-to>
       </div>
     </main>
 

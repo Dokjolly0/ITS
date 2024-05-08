@@ -77,9 +77,17 @@ export class TodoService {
   getTodoByTitle(token: string, title: string) {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     // Sostituisci il parametro di percorso :title con il valore del titolo
-    const url = `http://localhost:3000/api/todos/${title}`;
+    const url = `http://localhost:3000/api/todos/title/${title}`;
 
     // Esegui la richiesta GET per ottenere i todo con il titolo specificato
+    return this.http.get(url, { headers });
+  }
+
+  getById(token: string, id: string) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `http://localhost:3000/api/todos/id/${id}`;
+
+    // Esegui la richiesta GET per ottenere il todo con l'ID specificato
     return this.http.get(url, { headers });
   }
 
@@ -92,5 +100,23 @@ export class TodoService {
     return completed
       ? this.http.patch(urlCheck, {}, { headers })
       : this.http.patch(urlUncheck, {}, { headers });
+  }
+
+  assignTodo(id: string, assignedTo: string, token: string) {
+    // Costruisci l'URL con il parametro id
+    const url = `http://localhost:3000/api/todos/${id}/assign`;
+
+    // Costruisci il corpo della richiesta
+    const body = { assignedTo };
+
+    console.log('id:', id);
+    console.log('url:', url);
+    console.log('assignedTo:', assignedTo);
+
+    // Costruisci le intestazioni con il token di autorizzazione
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    // Effettua la chiamata POST utilizzando HttpClient, passando anche le intestazioni
+    return this.http.post(url, body, { headers });
   }
 }
