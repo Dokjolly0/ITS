@@ -13,5 +13,19 @@ export class TodoCardComponent implements OnInit {
     console.log('Lista dei todo:', this.todos);
   }
 
+  copyTodoId(todoId: string) {
+    // Copia l'ID del todo negli appunti
+    navigator.clipboard
+      .writeText(todoId)
+      .then(() => {
+        console.log('ID del todo copiato con successo: ', todoId);
+        //alert('ID del todo copiato con successo: ' + todoId);
+      })
+      .catch((error) => {
+        console.error("Errore durante la copia dell'ID del todo: ", error);
+        //alert("Errore durante la copia dell'ID del todo");
+      });
+  }
+
   description = false; // Dichiarazione della proprietà 'description' con inizializzazione
 }

@@ -59,3 +59,19 @@
 .todo-id span {
   font-weight: bold;
 }
+
+.copy-id-button {
+  background-color: #17df05;
+  border: 1px solid #15eb0e;
+  margin-left: 8px;
+  border-radius: 10px;
+  padding: 5px;
+  color: #000000;
+  cursor: pointer;
+}
+.copy-id-button:hover {
+  background-color: #169c11;
+}
+.copy-id-button:active {
+  background-color: #0e6b0e;
+}

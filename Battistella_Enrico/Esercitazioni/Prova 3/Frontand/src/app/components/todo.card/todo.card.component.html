@@ -5,7 +5,11 @@
     </div>
 
     <div class="todo-id">
-      <span>ID: {{ todo.id }}</span>
+      <!-- {{todo.id}} -->
+      <span>ID: </span>
+      <button class="copy-id-button" (click)="copyTodoId(todo.id!)">
+        Copia ID
+      </button>
     </div>
 
     <div class="todo-details">
