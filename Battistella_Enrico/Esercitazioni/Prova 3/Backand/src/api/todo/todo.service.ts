@@ -137,6 +137,32 @@ export class TodoService {
       throw new Error("Non hai accesso a questo todo");
     return todo;
   }
+
+  async delete_todo(todoId: string, userId: string) {
+    // Verifica se l'utente è autorizzato a eliminare il todo
+    const user = await UserModel.findById(userId);
+    if (!user) throw new Error("Non sei autorizzato a eliminare questo todo");
+
+    // Controlla se l'ID del todo è valido
+    if (!mongoose.Types.ObjectId.isValid(todoId))
+      throw new Error("L'id del todo non è valido");
+
+    // Cerca il todo per ID
+    const todo = await TodoModel.findOne({ _id: todoId });
+
+    // Se il todo non è stato trovato, restituisci un errore
+    if (!todo) throw new Error("Todo non trovato");
+
+    // Verifica se l'utente che ha creato il todo è lo stesso che sta cercando di eliminarlo
+    if (todo.createdBy.toString() !== userId)
+      throw new Error("Non hai accesso a questo todo");
+
+    // Elimina il todo dal database
+    await TodoModel.deleteOne({ _id: todoId });
+
+    // Restituisci il todo eliminato
+    return todo;
+  }
 }
 
 export default new TodoService();

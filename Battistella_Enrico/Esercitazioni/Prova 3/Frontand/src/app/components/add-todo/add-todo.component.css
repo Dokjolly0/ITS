@@ -1,3 +1,8 @@
+.body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 .add-todo-form {
   max-width: 400px;
   margin: 0 auto;

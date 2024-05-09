@@ -20,45 +20,10 @@ todo_schema.virtual("expired").get(function (this: Todo) {
 todo_schema.set("toJSON", {
   virtuals: true,
   transform: function (doc, ret) {
-    // Estrai l'ID dalla struttura dell'oggetto _id
-    const id = ret._id ? ret._id.toString() : null;
-
-    //console.log("Valore di _id:", ret._id);
-    //console.log("Valore di __v:", ret.__v);
-
-    const orderedFields = {
-      id: id, // Utilizza l'ID estratto
-      title: ret.title,
-      dueDate: ret.dueDate,
-      completed: ret.completed,
-      expired: ret.expired,
-      createdBy: {
-        id: ret.createdBy.id,
-        firstName: ret.createdBy.firstName,
-        lastName: ret.createdBy.lastName,
-        picture: ret.createdBy.picture,
-        fullName: ret.createdBy.fullName,
-      },
-      assignedTo: {
-        id: ret.assignedTo.id,
-        firstName: ret.assignedTo.firstName,
-        lastName: ret.assignedTo.lastName,
-        picture: ret.assignedTo.picture,
-        fullName: ret.assignedTo.fullName,
-      },
-    };
-
-    if (ret._id) {
-      delete ret._id; // Elimina _id dall'oggetto JSON
-      //console.log("_id eliminato");
-    }
-    if (ret.__v !== undefined) {
-      delete ret.__v; // Elimina __v dall'oggetto JSON solo se è presente
-      //console.log("__v eliminato");
-    }
-
-    //console.log("Oggetto JSON senza _id e __v:", orderedFields);
-    return orderedFields;
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+    return ret;
   },
 });
 

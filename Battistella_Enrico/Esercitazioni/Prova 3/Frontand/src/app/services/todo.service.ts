@@ -119,4 +119,11 @@ export class TodoService {
     // Effettua la chiamata POST utilizzando HttpClient, passando anche le intestazioni
     return this.http.post(url, body, { headers });
   }
+
+  delate(id: string, token: string) {
+    const url = `http://localhost:3000/api/todos/delete/${id}`;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.delete(url, { headers });
+  }
 }

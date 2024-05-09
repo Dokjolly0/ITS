@@ -15,6 +15,7 @@ import { TodoCardComponent } from './components/todo.card/todo.card.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { ChangeCompletedComponent } from './components/change-completed/change-completed.component';
 import { AssignedToComponent } from './components/assigned-to/assigned-to.component';
+import { DelateComponent } from './components/delate/delate.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AssignedToComponent } from './components/assigned-to/assigned-to.compon
     AddTodoComponent,
     ChangeCompletedComponent,
     AssignedToComponent,
+    DelateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

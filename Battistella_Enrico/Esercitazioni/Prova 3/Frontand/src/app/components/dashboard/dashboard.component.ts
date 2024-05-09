@@ -1,12 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  ViewChild,
-  ElementRef,
-  Input,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../entity/todo.entity';
@@ -26,6 +18,7 @@ export class DashboardComponent implements OnInit {
   isAdd: boolean = false;
   isCheck: boolean = false;
   isAssigned: boolean = false;
+  isDelate: boolean = false;
 
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
@@ -52,6 +45,7 @@ export class DashboardComponent implements OnInit {
     this.isAdd = false;
     this.isCheck = false;
     this.isAssigned = false;
+    this.isDelate = false;
 
     // Assume che il token sia già disponibile come una stringa
     const token = localStorage.getItem('token');
@@ -75,6 +69,7 @@ export class DashboardComponent implements OnInit {
     this.isAdd = true;
     this.isCheck = false;
     this.isAssigned = false;
+    this.isDelate = false;
 
     this.todos = [];
     this.data = this.todoService.getSharedData();
@@ -89,6 +84,7 @@ export class DashboardComponent implements OnInit {
     this.isAdd = false;
     this.isCheck = true;
     this.isAssigned = false;
+    this.isDelate = false;
     this.todos = [];
   }
 
@@ -97,6 +93,16 @@ export class DashboardComponent implements OnInit {
     this.isAdd = false;
     this.isCheck = false;
     this.isAssigned = true;
+    this.isDelate = false;
+    this.todos = [];
+  }
+
+  onClickDelate() {
+    this.isView = false;
+    this.isAdd = false;
+    this.isCheck = false;
+    this.isAssigned = false;
+    this.isDelate = true;
     this.todos = [];
   }
 
@@ -106,3 +112,7 @@ export class DashboardComponent implements OnInit {
   }
 }
 console.log('Script caricato');
+
+//Registrarti a render e fai l'accesso con gitHub e scegli la cartella del beckand
+// comando ng deploy --base-href=/angular-todo/
+// Configura nelle impostazioni della repo setting deployment github pages

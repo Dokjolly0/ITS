@@ -208,3 +208,26 @@ export const get_by_id = async (
     }
   }
 };
+
+export const delate_todo = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = req.user!;
+    const id = req.params.id as string;
+    const todo = await TodoService.delete_todo(id, user.id!);
+    res.status(200).json({ "Todo eliminato correttamente": todo });
+  } catch (error: any) {
+    if (error.message === "Todo non trovato")
+      res.status(400).json({ "Errore: ": "Todo non trovato" });
+    else {
+      res.status(500).json({
+        errore: "InternalServerError",
+        messaggio:
+          "Il server ha riscontrato un errore interno." + error.message,
+      });
+    }
+  }
+};

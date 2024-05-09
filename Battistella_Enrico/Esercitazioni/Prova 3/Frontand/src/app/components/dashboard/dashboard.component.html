@@ -60,6 +60,9 @@
             >Riassegna todo esistente
           </a>
         </li>
+        <li>
+          <a class="btn btn-delate" (click)="onClickDelate()">Elimina todo</a>
+        </li>
       </ul>
     </aside>
 
@@ -83,6 +86,11 @@
       <!-- Riassegna Todo -->
       <div *ngIf="isAssigned">
         <app-assigned-to></app-assigned-to>
+      </div>
+
+      <!-- Elimina Todo -->
+      <div *ngIf="isDelate">
+        <app-delate></app-delate>
       </div>
     </main>
 

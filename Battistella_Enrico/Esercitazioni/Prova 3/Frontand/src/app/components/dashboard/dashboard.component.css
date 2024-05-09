@@ -8,7 +8,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background-color: #1f1f1f;
+  background-color: #7b7b7b;
   position: fixed;
   top: 0;
   left: 0;
@@ -27,6 +27,12 @@ body {
   width: 30px;
   height: 30px;
   margin-right: 10px;
+}
+
+.user-icon {
+  border-radius: 100%;
+  position: relative;
+  top: 8px; /* Sposta l'icona verso il basso per centrarla verticalmente */
 }
 
 /* Stile per il nome del profilo */
@@ -124,9 +130,13 @@ app-todo-card {
 }
 
 .btn.btn-logout {
-  background-color: #ff4d4d;
+  background-color: #ea6b6b;
   color: #fff;
   margin-bottom: 5px; /* Aggiunge del padding alla fine della sidebar per separare i bottoni */
+}
+
+.btn.btn-logout:hover {
+  background-color: #ff0000;
 }
 
 .btn.btn-add-todo {
@@ -143,6 +153,11 @@ app-todo-card {
 
 .btn.btn-flag-incomplete {
   background-color: #be18e3bc;
+  color: #fff;
+}
+
+.btn-delate {
+  background-color: #ff0000;
   color: #fff;
 }
 
@@ -217,4 +232,8 @@ app-todo-card {
 .option-label {
   margin-right: 5px; /* Aumenta il margine destro per distanziare l'etichetta dal checkbox */
   position: relative;
+}
+
+main {
+  background-color: #f4f4f4;
 }
