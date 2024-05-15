@@ -9,6 +9,7 @@ import {
   get_by_title,
   get_by_id,
   delate_todo,
+  update_date,
 } from "./todo.controller";
 import { validate } from "../../utils/validation-middleware";
 import { Add_todo_dto } from "./todo.dto";
@@ -24,5 +25,6 @@ router.post("/:id/assign", assign_todo);
 router.get("/title/:title", get_by_title);
 router.get("/id/:id", get_by_id);
 router.delete("/delete/:id", delate_todo);
+router.patch("/:id/date", update_date);
 
 export default router;

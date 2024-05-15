@@ -168,8 +168,17 @@ export class TodoService {
     // Restituisci il todo eliminato
     return todo;
   }
-}
 
+  async update_date(todoId: string, userId: string, date: Date) {
+    const todo = await TodoModel.findById(todoId);
+    if (!todo) throw new Error("Todo non trovato");
+    if (todo.createdBy.toString() !== userId)
+      throw new Error("Non hai accesso a questo todo");
+    todo.dueDate = date;
+    await todo.save();
+    return todo;
+  }
+}
 export default new TodoService();
 
 //Crea una nuova classe di errore, la lancio nel servizio (new not_found_error) e la gestisco nel catch

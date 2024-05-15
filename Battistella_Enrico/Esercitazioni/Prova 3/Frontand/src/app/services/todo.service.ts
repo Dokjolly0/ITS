@@ -129,4 +129,12 @@ export class TodoService {
 
     return this.http.delete(url, { headers });
   }
+
+  changeDueDate(id: string, dueDate: string, token: string) {
+    const url = `http://localhost:3000/api/todos/${id}/date`;
+    const body = { date: dueDate };
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.patch(url, body, { headers });
+  }
 }

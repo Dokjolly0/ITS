@@ -18,6 +18,7 @@ import { AssignedToComponent } from './components/assigned-to/assigned-to.compon
 import { DelateComponent } from './components/delate/delate.component';
 import { AmiciComponent } from './components/amici/amici.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
+import { ChangeDuedateComponent } from './components/change-duedate/change-duedate.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     DelateComponent,
     AmiciComponent,
     UserCardComponent,
+    ChangeDuedateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

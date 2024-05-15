@@ -29,3 +29,4 @@
 
 # Altri file e cartelle da ignorare
 .DS_Store
+.angular

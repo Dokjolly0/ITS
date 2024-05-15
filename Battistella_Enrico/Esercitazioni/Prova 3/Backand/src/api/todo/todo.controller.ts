@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import TodoService from "./todo.service";
-import { Request, Response, NextFunction } from "express";
+import e, { Request, Response, NextFunction } from "express";
 import { Add_todo_dto } from "./todo.dto";
 import { TypedRequest } from "../../utils/typed-request";
 import { UtenteNonTrovatoError } from "../../errors/user_not_found";
@@ -243,6 +243,29 @@ export const delate_todo = async (
         errore: "InternalServerError",
         messaggio:
           "Il server ha riscontrato un errore interno." + error.message,
+      });
+  }
+};
+
+export const update_date = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = req.user!;
+    const id = req.params.id as string;
+    const date = req.body.date as Date;
+    const todo = await TodoService.update_date(id, user.id!, date);
+    res.status(200).json(todo);
+  } catch (error: any) {
+    if (error.message === "Todo non trovato")
+      res.status(400).json({ "Errore: ": "Todo non trovato" });
+    else
+      res.status(500).json({
+        errore: "InternalServerError",
+        messaggio:
+          "Il server ha riscontrato un errore interno. " + error.message,
       });
   }
 };

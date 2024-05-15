@@ -65,6 +65,9 @@
       <li>
         <a class="btn btn-delate" (click)="onClickDelate()">Elimina todo</a>
       </li>
+      <li>
+        <a class="btn btn-change-duedate" (click)="onClickDate()">Modifica la scadenza</a>
+      </li>
     </ul>
   </aside>
 
@@ -93,6 +96,11 @@
     <!-- Elimina Todo -->
     <div *ngIf="isDelate">
       <app-delate></app-delate>
+    </div>
+
+    <!-- Modifica la scadenza -->
+    <div *ngIf="isDate">
+      <app-change-duedate></app-change-duedate>
     </div>
   </main>
 

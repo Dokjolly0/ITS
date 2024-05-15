@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   isCheck: boolean = false;
   isAssigned: boolean = false;
   isDelate: boolean = false;
+  isDate: boolean = false;
 
   @ViewChild('completedCheckbox')
   completedCheckbox!: ElementRef<HTMLInputElement>;
@@ -71,6 +72,7 @@ export class DashboardComponent implements OnInit {
     this.isCheck = false;
     this.isAssigned = false;
     this.isDelate = false;
+    this.isDate = false;
 
     // Assume che il token sia già disponibile come una stringa
     const token = localStorage.getItem('token');
@@ -95,6 +97,7 @@ export class DashboardComponent implements OnInit {
     this.isCheck = false;
     this.isAssigned = false;
     this.isDelate = false;
+    this.isDate = false;
 
     this.todos = [];
     this.data = this.todoService.getSharedData();
@@ -110,6 +113,7 @@ export class DashboardComponent implements OnInit {
     this.isCheck = true;
     this.isAssigned = false;
     this.isDelate = false;
+    this.isDate = false;
     this.todos = [];
   }
 
@@ -119,6 +123,7 @@ export class DashboardComponent implements OnInit {
     this.isCheck = false;
     this.isAssigned = true;
     this.isDelate = false;
+    this.isDate = false;
     this.todos = [];
   }
 
@@ -128,6 +133,17 @@ export class DashboardComponent implements OnInit {
     this.isCheck = false;
     this.isAssigned = false;
     this.isDelate = true;
+    this.isDate = false;
+    this.todos = [];
+  }
+
+  onClickDate() {
+    this.isView = false;
+    this.isAdd = false;
+    this.isCheck = false;
+    this.isAssigned = false;
+    this.isDelate = false;
+    this.isDate = true;
     this.todos = [];
   }
 

@@ -237,6 +237,11 @@ app-todo-card {
   color: #fff;
 }
 
+.btn-change-duedate {
+  background-color: #0d3072;
+  color: white;
+}
+
 /* Todo Options Styles */
 .todo-options {
   display: flex;
