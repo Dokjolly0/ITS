@@ -1,0 +1,76 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Imposta la distribuzione degli elementi all'inizio della riga */
+}
+
+.user-card {
+  background-color: #f6ea0076;
+  border: 1px solid #f6ff00;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-header h2 {
+  margin: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info {
+  margin-bottom: 8px;
+}
+
+.user-name span,
+.user-surname span,
+.user-id span {
+  font-weight: bold;
+}
+
+.user-picture img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.copy-id-button {
+  background-color: #17df05;
+  border: 1px solid #15eb0e;
+  margin-left: 8px;
+  border-radius: 10px;
+  padding: 5px;
+  color: #000000;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.copy-id-button:hover {
+  background-color: #169c11;
+}
+.copy-id-button:active {
+  background-color: #0e6b0e;
+}
+#fullNameUser {
+  position: relative;
+  top: -10px;
+}
+
+#user-name,
+#user-surname,
+#user-picture,
+user-friends {
+  margin-bottom: 10px;
+}

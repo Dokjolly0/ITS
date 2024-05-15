@@ -4,4 +4,5 @@ export interface User {
   lastName: string;
   fullName?: User;
   picture: User;
+  // friends: User[];
 }

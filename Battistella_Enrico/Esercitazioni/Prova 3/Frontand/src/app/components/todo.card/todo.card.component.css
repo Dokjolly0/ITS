@@ -6,9 +6,7 @@
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 20px;
-  width: calc(
-    45% - 20px
-  ); /* Imposta la larghezza in base al 45% del contenitore */
+  width: calc(45% - 20px); /* Imposta la larghezza in base al 45% del contenitore */
 }
 
 .cards {
@@ -74,4 +72,14 @@
 }
 .copy-id-button:active {
   background-color: #0e6b0e;
+}
+
+.due-date-color {
+  color: red;
+  font-weight: bold;
+}
+
+.date-expired {
+  color: black;
+  font-weight: normal;
 }

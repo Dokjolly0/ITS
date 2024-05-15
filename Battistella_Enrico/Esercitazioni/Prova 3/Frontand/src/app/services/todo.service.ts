@@ -46,6 +46,12 @@ export class TodoService {
     return user ? `${user.firstName} ${user.lastName}` : '';
   }
 
+  getUserPicture(): string {
+    // Ottieni l'immagine dell'utente
+    const user = this.getUser();
+    return user ? user.picture : '';
+  }
+
   private getUser() {
     // Implementa la logica per ottenere l'utente dal servizio appropriato
     // Ad esempio, puoi chiamare un endpoint API per recuperare le informazioni dell'utente
@@ -55,15 +61,12 @@ export class TodoService {
     return userJson ? JSON.parse(userJson) : null;
   }
 
-  findUserByFullName(token: string, fullName: string) {
+  findUserByFullName(token: string, fullName: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const url = 'http://localhost:3000/api/users/user/:fullName'; // URL con :fullName come placeholder
-
-    // Definisci il valore di fullName come parametro nella richiesta
-    const params = { fullName: fullName };
+    const url = `http://localhost:3000/api/users/user/${fullName}`;
 
     // Esegui la richiesta GET passando i parametri
-    return this.http.get(url, { headers, params });
+    return this.http.get(url, { headers });
   }
 
   checkTodo(token: string, id: string) {
@@ -71,7 +74,7 @@ export class TodoService {
     const url = `http://localhost:3000/api/todos/${id}/check`;
 
     // Esegui la richiesta PATCH per contrassegnare il todo come completato
-    return this.http.patch(url, {}, { headers });
+    return this.http.get(url, { headers });
   }
 
   getTodoByTitle(token: string, title: string) {

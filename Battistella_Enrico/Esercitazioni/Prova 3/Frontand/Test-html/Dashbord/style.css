@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  background-color: #333;
+  height: 40px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+}
+
+.titlePage {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: Poetsen One, cursive, sans-serif;
+}
+
+.user {
+  display: flex; /* Utilizza il display flex per allineare l'utente a destra */
+  align-items: center; /* Allinea verticalmente l'icona utente e il dropdown */
+}
+
+.logo {
+  flex: 1; /* Il logo occupa tutto lo spazio disponibile a sinistra */
+  color: white;
+  font-size: 20px;
+}
+
+.userIcon {
+  display: block;
+  position: relative;
+  right: 60px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.dropdown {
+  position: relative;
+  top: 48px;
+  height: 100%;
+  width: 160px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #333;
+  border: 3px solid #333;
+  display: none;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
+}
+
+.linkDropdown {
+  color: white;
+  /* border: 1px solid red; */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkDropdown:hover {
+  color: #333;
+  background-color: white;
+}
+
+.listDropdown:hover {
+  background-color: white;
+}
+
+.listDropdown:hover:hover .a {
+  color: #333;
+}
+
+.show {
+  display: block;
+  animation: showDropdown 0.5s;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 160px; /* Larghezza della sidebar */
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.sidebar-btn {
+  width: 100%; /* Larghezza dei bottoni */
+  height: 60px; /* Altezza dei bottoni */
+  position: relative;
+  top: 40px;
+  /* border-radius: 10px; */
+  border: none;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 1px;
+}
+
+#btnView {
+  background-color: #24a8e6;
+}
+#btnView:hover {
+  background-color: #24a9e688;
+}
+
+#btnAdd {
+  background-color: #24e6a8;
+}
+#btnAdd:hover {
+  background-color: #24e6a888;
+}
+
+#btnCheck {
+  background-color: #e6a824;
+}
+#btnCheck:hover {
+  background-color: #e6a82488;
+}
+
+#btnAssign {
+  background-color: #e624a8;
+}
+#btnAssign:hover {
+  background-color: #e624a888;
+}
+
+#btnDelate {
+  background-color: #ff0000;
+}
+#btnDelate:hover {
+  background-color: #ff000088;
+}
+
+.sidebar-btn:hover {
+  background-color: #777;
+}
+
+@keyframes showDropdown {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  100% {
+    top: 48px;
+    opacity: 1;
+  }
+}

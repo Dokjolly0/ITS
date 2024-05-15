@@ -1,0 +1,331 @@
+/* General Styles */
+.body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita lo scroll orizzontale */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #7b7b7b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  color: #fff;
+  padding: 10px 20px; /* Aggiungiamo del padding sopra e sotto per separare i bottoni */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 25px; /* Impostiamo un'altezza massima per l'immagine */
+}
+
+/* Stile per l'immagine del profilo */
+.navbar-brand .user-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+  top: 0px; /* Sposta l'icona verso il basso per centrarla verticalmente */
+}
+
+.profile-name {
+  cursor: pointer;
+}
+
+.user-icon {
+  border-radius: 100%;
+}
+
+.navbar-user,
+.profile-name,
+.user-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1;
+}
+
+.Brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  top: 60px;
+  height: 100%;
+  width: 100px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #7b7b7b;
+  border: 3px solid #7b7b7b;
+  z-index: 0;
+  display: none;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  position: relative;
+  right: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.linkDropdown {
+  color: white;
+  /* border: 1px solid red; */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkDropdown:hover {
+  color: #333;
+  background-color: white;
+  width: 100%;
+}
+
+.listDropdown:hover {
+  background-color: white;
+  color: #333;
+}
+
+.listDropdown:hover .linkDropdown {
+  color: #333;
+}
+
+.show {
+  display: block;
+  animation: showDropdown 0.5s;
+}
+
+/* Stile per il nome del profilo */
+.navbar-brand .profile-name {
+  font-weight: bold;
+  font-size: 16px; /* Modifica la dimensione del testo per adattarla all'altezza ridotta della navbar */
+  position: relative;
+  top: -8px; /* Sposta il testo verso il basso per centrarlo verticalmente */
+}
+
+.sidebar {
+  background-color: #444; /* Colore di sfondo della sidebar */
+  color: #fff; /* Colore del testo */
+  padding: 20px; /* Spaziatura interna */
+  position: fixed; /* Posizione fissa */
+  left: 0; /* Posizione rispetto al bordo sinistro */
+  top: 40px; /* Altezza della navbar */
+  bottom: 0; /* In basso fino al fondo della pagina */
+  width: 250px; /* Larghezza della sidebar */
+  z-index: 1; /* Per essere sopra il contenuto */
+  display: flex; /* Utilizza il display flex per allineare i contenuti */
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  font-size: 20px; /* Dimensione del titolo */
+  margin-bottom: 10px; /* Spaziatura sotto il titolo */
+}
+
+.labelNome {
+  margin-left: 18px;
+  margin-bottom: 10px;
+}
+
+.request-list {
+  list-style-type: none; /* Rimuove i punti della lista */
+  padding: 0; /* Rimuove il padding predefinito */
+}
+
+.request {
+  background-color: #444; /* Colore di sfondo delle richieste */
+  border: 1px solid #ffffff; /* Bordo sottile */
+  padding: 10px; /* Spaziatura interna */
+  margin-bottom: 10px; /* Spaziatura tra le richieste */
+}
+
+.accept-btn,
+.reject-btn {
+  color: #fff; /* Colore del testo */
+  border: none; /* Rimuove il bordo */
+  padding: 5px 10px; /* Spaziatura interna */
+  margin-left: 10px; /* Spaziatura a sinistra */
+  cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+  border-radius: 10px; /* Bordi arrotondati */
+}
+
+.accept-btn {
+  background-color: #28a745; /* Colore verde */
+}
+.accept-btn:hover {
+  background-color: #1f840d;
+}
+
+.reject-btn {
+  background-color: #dc3545; /* Colore rosso */
+}
+.reject-btn:hover {
+  background-color: #840d19;
+}
+
+main {
+  width: calc(100% - 250px); /* Larghezza della pagina principale */
+  height: 100vh;
+  position: relative;
+  left: 250px; /* Sposta la pagina principale a destra */
+  height: calc(100vh - 40px);
+  top: 40px;
+  overflow-y: auto; /* Aggiungi una barra di scorrimento verticale */
+}
+
+.friends-page {
+  margin: 20px auto;
+  max-width: 800px; /* Imposta una larghezza massima per la pagina degli amici */
+  padding: 20px;
+  background-color: #a4abb2; /* Colore di sfondo */
+  border-radius: 10px; /* Bordi arrotondati */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  position: relative;
+  top: 100px;
+}
+
+#idUtente,
+#nomeUtente {
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: 1px solid #a4abb2;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.friend-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.friend {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  transition: all 0.3s ease; /* Effetto di transizione */
+  display: flex;
+  justify-content: space-between;
+}
+
+.friend:hover {
+  transform: translateY(
+    -2px
+  ); /* Effetto di sollevamento al passaggio del mouse */
+}
+
+#btnSearch {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+}
+#btnSearch:hover {
+  background-color: #0056b3; /* Cambia colore di sfondo al passaggio del mouse */
+}
+
+#btnSearchName {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px;
+}
+#btnSearchName:hover {
+  background-color: #0056b3; /* Cambia colore di sfondo al passaggio del mouse */
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+/* Stili per l'input e il pulsante di ricerca */
+#userID {
+  padding: 10px;
+  width: calc(
+    46% - 70px
+  ); /* Utilizza tutto lo spazio rimanente tranne quello del pulsante */
+  border: 1px solid #a4abb2; /* Bordo sottile */
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease; /* Effetto di transizione per il cambio di colore del bordo */
+}
+#userID:focus {
+  border-color: #007bff; /* Cambia colore del bordo al focus */
+}
+
+#userUsername {
+  padding: 10px;
+  width: calc(
+    50% - 70px
+  ); /* Utilizza tutto lo spazio rimanente tranne quello del pulsante */
+  border: 1px solid #a4abb2; /* Bordo sottile */
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease; /* Effetto di transizione per il cambio di colore del bordo */
+}
+#userUsername:focus {
+  border-color: #007bff; /* Cambia colore del bordo al focus */
+}
+
+.user-info {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  margin-bottom: 20px;
+}
+
+/* Stili per il bottone di rimozione */
+.remove-btn {
+  background-color: #dc3545; /* Colore rosso */
+  color: #fff; /* Testo bianco */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Effetto di transizione */
+  margin-left: 10px; /* Aggiungi spazio a sinistra */
+}
+
+.remove-btn:hover {
+  background-color: #c82333; /* Cambia colore al passaggio del mouse */
+}
+
+@keyframes showDropdown {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  100% {
+    top: 48px;
+    opacity: 1;
+  }
+}
+
+app-user-card {
+  position: relative;
+  top: 100px;
+  right: -200px;
+}

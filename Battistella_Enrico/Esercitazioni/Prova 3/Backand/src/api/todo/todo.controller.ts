@@ -1,12 +1,9 @@
 import mongoose from "mongoose";
 import TodoService from "./todo.service";
 import { Request, Response, NextFunction } from "express";
-import { NotFoundError } from "../../errors/not-found";
 import { Add_todo_dto } from "./todo.dto";
 import { TypedRequest } from "../../utils/typed-request";
-import { ne, th } from "@faker-js/faker";
 import { UtenteNonTrovatoError } from "../../errors/user_not_found";
-import { TodoModel } from "./todo.model";
 
 export const show_todo = async (
   req: Request,
@@ -28,6 +25,12 @@ export const show_todo = async (
   } catch (error: any) {
     if (error.message === "User id non valido")
       res.status(400).json({ "Errore: ": "Iser id non valido" });
+    else
+      res.status(500).json({
+        errore: "InternalServerError",
+        messaggio:
+          "Il server ha riscontrato un errore interno." + error.message,
+      });
   }
 };
 
@@ -39,12 +42,13 @@ export const add_todo = async (
   try {
     const user = req.user!;
     const { title, dueDate, assignedTo } = req.body;
+    const assignedToValue = assignedTo !== undefined ? assignedTo : undefined;
 
     const TodoObject = {
       title,
       dueDate,
       createdBy: user.id!,
-      assignedTo: assignedTo,
+      assignedTo: assignedToValue,
     };
 
     if (title === undefined) throw new Error("Il titolo è obbligatorio");
@@ -55,6 +59,13 @@ export const add_todo = async (
   } catch (err: any) {
     if (err.message === "Il titolo è obbligatorio")
       res.status(400).json({ "Errore: ": "Il titolo è obbligatorio" });
+    else if (err.message instanceof UtenteNonTrovatoError)
+      res.status(400).json({ "Errore: ": "Utente non trovato" });
+    else
+      res.status(500).json({
+        errore: "InternalServerError",
+        messaggio: "Il server ha riscontrato un errore interno." + err.message,
+      });
   }
 };
 
@@ -74,24 +85,28 @@ export const check_todo = async (
   } catch (err: any) {
     if (err.message === "L'id che hai inserito non è valido")
       res
-        .status(400)
+        .status(404)
         .json({ "Errore: ": "L'id che hai inserito non è valido" });
+    //
     else if (err.message === "Todo non trovato")
-      res.status(400).json({ "Errore: ": "Todo non trovato" });
+      res.status(404).json({ "Errore: ": "Todo non trovato" });
+    //
     else if (err.message === "Non hai accesso a questo todo")
-      res.status(400).json({ "Errore: ": "Non hai accesso a questo todo" });
+      res.status(401).json({ "Errore: ": "Non hai accesso a questo todo" });
+    //
     else if (err.message === "Il todo non esiste")
-      res.status(400).json({ "Errore: ": "Il todo non esiste" });
-    else if (err instanceof mongoose.Error.CastError) {
-      res.status(400).json({
+      res.status(404).json({ "Errore: ": "Il todo non esiste" });
+    //
+    else if (err instanceof mongoose.Error.CastError)
+      res.status(500).json({
         "Errore ": "Errore di conversione dell'ID",
       });
-    } else {
+    //
+    else
       res.status(500).json({
         errore: "InternalServerError",
         messaggio: "Il server ha riscontrato un errore interno." + err.message,
       });
-    }
   }
 };
 
@@ -111,16 +126,16 @@ export const uncheck_todo = async (
   } catch (err: any) {
     if (err.message === "L'id che hai inserito non è valido")
       res
-        .status(400)
+        .status(404)
         .json({ "Errore: ": "L'id che hai inserito non è valido" });
     else if (err.message === "Todo non trovato")
-      res.status(400).json({ "Errore: ": "Todo non trovato" });
+      res.status(404).json({ "Errore: ": "Todo non trovato" });
     else if (err.message === "Non hai accesso a questo todo")
-      res.status(400).json({ "Errore: ": "Non hai accesso a questo todo" });
+      res.status(404).json({ "Errore: ": "Non hai accesso a questo todo" });
     else if (err.message === "Il todo non esiste")
-      res.status(400).json({ "Errore: ": "Il todo non esiste" });
+      res.status(404).json({ "Errore: ": "Il todo non esiste" });
     else if (err instanceof mongoose.Error.CastError) {
-      res.status(400).json({
+      res.status(500).json({
         "Errore ": "Errore di conversione dell'ID",
       });
     } else {
@@ -147,17 +162,17 @@ export const assign_todo = async (
   } catch (error: any) {
     if (error instanceof UtenteNonTrovatoError)
       //if (error.message === "Utente non trovato")
-      res.status(400).json({ "Errore: ": "Utente non trovato" });
+      res.status(404).json({ "Errore: ": "Utente non trovato" });
     else if (error.message === "Todo non trovato")
-      res.status(400).json({ "Errore: ": "Todo non trovato" });
+      res.status(404).json({ "Errore: ": "Todo non trovato" });
     else if (error.message === "L'id che hai inserito non è valido")
       res
-        .status(400)
+        .status(404)
         .json({ "Errore: ": "L'id che hai inserito non è valido" });
     else if (error.message === "Il todo non esiste")
-      res.status(400).json({ "Errore: ": "Il todo non esiste" });
+      res.status(404).json({ "Errore: ": "Il todo non esiste" });
     else if (error.message === "Non hai accesso a questo todo")
-      res.status(400).json({ "Errore: ": "Non hai accesso a questo todo" });
+      res.status(401).json({ "Errore: ": "Non hai accesso a questo todo" });
     else {
       res.status(500).json({
         errore: "InternalServerError",
@@ -182,6 +197,8 @@ export const get_by_title = async (
   } catch (error: any) {
     if (error.message === "Todo non trovato")
       res.status(400).json({ "Errore: ": "Todo non trovato" });
+    else
+      res.status(500).json({ errore: "InternalServerError" + error.message });
   }
 };
 
@@ -199,13 +216,12 @@ export const get_by_id = async (
   } catch (error: any) {
     if (error.message === "Todo non trovato")
       res.status(400).json({ "Errore: ": "Todo non trovato" });
-    else {
+    else
       res.status(500).json({
         errore: "InternalServerError",
         messaggio:
           "Il server ha riscontrato un errore interno." + error.message,
       });
-    }
   }
 };
 
@@ -222,12 +238,11 @@ export const delate_todo = async (
   } catch (error: any) {
     if (error.message === "Todo non trovato")
       res.status(400).json({ "Errore: ": "Todo non trovato" });
-    else {
+    else
       res.status(500).json({
         errore: "InternalServerError",
         messaggio:
           "Il server ha riscontrato un errore interno." + error.message,
       });
-    }
   }
 };

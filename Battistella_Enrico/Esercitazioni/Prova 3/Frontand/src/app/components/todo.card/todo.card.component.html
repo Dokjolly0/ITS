@@ -7,9 +7,7 @@
     <div class="todo-id">
       <!-- {{todo.id}} -->
       <span>ID: </span>
-      <button class="copy-id-button" (click)="copyTodoId(todo.id!)">
-        Copia ID
-      </button>
+      <button class="copy-id-button" (click)="copyTodoId(todo.id!)">Copia ID</button>
     </div>
 
     <div class="todo-details">
@@ -17,8 +15,9 @@
         <div class="created-by">
           <span>Creato da: </span>
           <img
-            src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
+            [src]="todo.createdBy.picture"
             alt="Immagine utente"
+            onerror="this.src='https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png'"
           />
           <span>{{ todo.createdBy.fullName }}</span>
         </div>
@@ -26,13 +25,12 @@
         <div class="assigned-to">
           <span>Assegnato a: </span>
           <img
-            src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
+            [src]="todo.assignedTo?.picture"
             alt="Immagine utente"
+            onerror="this.src='https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png'"
           />
           <span>{{
-            todo.assignedTo?.fullName
-              ? todo.assignedTo?.fullName
-              : "Nessun utente assegnato"
+            todo.assignedTo?.fullName ? todo.assignedTo?.fullName : "Nessun utente assegnato"
           }}</span>
         </div>
       </div>
@@ -46,22 +44,26 @@
 
       <div class="completion-info">
         <div>
-          <span
-            >Completato:
-            {{ todo.completed ? "Completato" : "Non completato" }}</span
-          >
+          <span>Completato: {{ todo.completed ? "Completato" : "Non completato" }}</span>
         </div>
         <br />
 
         <div class="due-date">
-          <span
-            >Scadenza:
-            {{
-              todo.dueDate
-                ? (todo.dueDate | date : "dd/MM/yyyy")
-                : "Nessuna scadenza"
-            }}</span
-          >
+          <ng-container *ngIf="todo.dueDate">
+            <span *ngIf="isExpired(todo.dueDate)">
+              <span>Scadenza: </span>
+              <span class="due-date-color"
+                >scaduto da {{ expiredDays }} giorni
+                <span class="date-expired">({{ todo.dueDate | date : "dd/MM/yyyy" }})</span>
+              </span>
+            </span>
+
+            <span *ngIf="!isExpired(todo.dueDate)" class="not-expired">
+              <span>Scadenza: {{ todo.dueDate | date : "dd/MM/yyyy" }}</span>
+            </span>
+          </ng-container>
+
+          <ng-container *ngIf="!todo.dueDate"> Scadenza: nessuna scadenza impostata </ng-container>
         </div>
       </div>
     </div>

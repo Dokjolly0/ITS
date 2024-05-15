@@ -29,7 +29,10 @@ input[type="text"],
 input[type="date"],
 select,
 textarea {
+  min-width: 100%;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

@@ -66,6 +66,17 @@ export class UserService {
 
     return user;
   }
-}
 
+  // async addFriend(userId: User, friendId: string) {
+  //   const user = await UserModel.findById(userId);
+  //   if (!user) throw new Error("Utente non trovato");
+
+  //   const friend = await UserModel.findById(friendId);
+  //   if (!friend) throw new Error("Amico non trovato");
+
+  //   // user.friends = [...user.friends, friendId];
+  //   // await user.save();
+  //   // return user;
+  // }
+}
 export default new UserService();

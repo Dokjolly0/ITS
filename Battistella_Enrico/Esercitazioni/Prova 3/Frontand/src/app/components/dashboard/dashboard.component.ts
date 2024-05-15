@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   todos: Todo[] = [];
   fullName: string = '';
+  picture: string = '';
   completed: boolean = false;
 
   isView: boolean = false;
@@ -31,7 +32,31 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fullName = this.todoService.getUserFullName();
+    this.picture = this.todoService.getUserPicture();
     console.log("Nome completo dell'utente:", this.fullName);
+  }
+
+  timeoutId: any | null = null;
+
+  onClickUser() {
+    const dropdown = document.querySelector('.dropdown');
+
+    if (dropdown) {
+      dropdown.classList.toggle('show');
+
+      // Se il dropdown è stato aperto, impostiamo un timeout per chiuderlo dopo 5 secondi
+      if (dropdown.classList.contains('show')) {
+        // Cancella il timeout precedente, se presente
+        if (this.timeoutId) {
+          clearTimeout(this.timeoutId);
+        }
+
+        this.timeoutId = setTimeout(() => {
+          dropdown.classList.remove('show');
+          this.timeoutId = null; // Resetta il timeoutId dopo aver chiuso il dropdown
+        }, 5000); // 5000 millisecondi = 5 secondi
+      }
+    }
   }
 
   onChangeCompleted(): void {
@@ -109,6 +134,10 @@ export class DashboardComponent implements OnInit {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/']);
+  }
+
+  show_alert() {
+    alert('Questa sezione è in fase di sviluppo! 😅');
   }
 }
 console.log('Script caricato');

@@ -12,7 +12,6 @@ import {
 } from "./todo.controller";
 import { validate } from "../../utils/validation-middleware";
 import { Add_todo_dto } from "./todo.dto";
-import { de } from "@faker-js/faker";
 
 const router = express.Router();
 

@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { User } from "../user/user.entity";
 import { UserModel } from "../user/user.model";
 import { task_entity as Todo } from "./todo.entity";
 import { TodoModel } from "./todo.model";
@@ -35,11 +34,17 @@ export class TodoService {
 
   //Partial è un tipo di TypeScript che crea un nuovo tipo con tutti i campi di un altro tipo impostati come obbligatori.
   async add_todo(TodoObject, userId): Promise<Todo> {
+    // const userAssign = await UserModel.findById(TodoObject.assignedTo);
+    // if (!userAssign) throw new UtenteNonTrovatoError();
+    const assignedToValue =
+      TodoObject.assignedTo !== undefined ? TodoObject.assignedTo : undefined;
+
     const newTodo = await TodoModel.create({
       ...TodoObject,
       createdBy: userId, // Assegna direttamente l'ID dell'utente
-      assignedTo: TodoObject.assignedTo, // Assicurati che TodoObject contenga già l'ID dell'utente assegnato
+      assignedTo: assignedToValue, // Assicurati che TodoObject contenga già l'ID dell'utente assegnato
     });
+    console.log("AssignedToValue", assignedToValue);
     newTodo.populate("createdBy assignedTo");
     return newTodo.populate("createdBy assignedTo"); // Esegui popolazione e restituisci il risultato
   }

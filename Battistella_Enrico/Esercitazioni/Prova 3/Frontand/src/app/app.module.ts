@@ -16,6 +16,8 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { ChangeCompletedComponent } from './components/change-completed/change-completed.component';
 import { AssignedToComponent } from './components/assigned-to/assigned-to.component';
 import { DelateComponent } from './components/delate/delate.component';
+import { AmiciComponent } from './components/amici/amici.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { DelateComponent } from './components/delate/delate.component';
     ChangeCompletedComponent,
     AssignedToComponent,
     DelateComponent,
+    AmiciComponent,
+    UserCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

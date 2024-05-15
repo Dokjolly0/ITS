@@ -27,6 +27,22 @@ export class AuthService {
       );
   }
 
+  register(
+    firstName: string,
+    lastName: string,
+    username: string,
+    password: string,
+    picture: string
+  ): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/api/auth/register', {
+      firstName,
+      lastName,
+      username,
+      password,
+      picture,
+    });
+  }
+
   isLoggedIn(): boolean {
     // Verifica se il token è presente nel localStorage o in un altro luogo
     return !!localStorage.getItem('token');

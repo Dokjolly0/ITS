@@ -1,42 +1,31 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Files di build
+/dist/
+/tmp/
+/out-tsc/
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# Alcuni file che non dovrebbero essere distribuiti
+/tsconfig.tsbuildinfo
+/*.js
+/*.js.map
 
-# Node
+# node_modules dovrebbe sempre essere ignorato
 /node_modules
-npm-debug.log
-yarn-error.log
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# File di configurazione specifici per l'IDE
+/.idea
+/.vscode
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
+# File di build generati dagli strumenti
 /coverage
-/libpeerconnection.log
-testem.log
-/typings
+/.nyc_output
 
-# System files
+# File di configurazione per diversi strumenti e librerie
+/.angular.json
+/.eslintrc.json
+/.prettierrc
+/tsconfig.json
+/karma.conf.js
+/jest.config.js
+
+# Altri file e cartelle da ignorare
 .DS_Store
-Thumbs.db
