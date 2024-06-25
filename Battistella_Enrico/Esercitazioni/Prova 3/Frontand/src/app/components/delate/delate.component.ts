@@ -9,7 +9,7 @@ import { TodoService } from '../../services/todo.service';
 })
 export class DelateComponent {
   title: string = '';
-  completed: boolean = false;
+  completed: boolean = true;
   isView: boolean = false;
   isAdd: boolean = false;
   isCheck: boolean = false;
@@ -55,10 +55,7 @@ export class DelateComponent {
         console.log('Lista dei todo:', this.todos);
       },
       (error: any) => {
-        console.error(
-          'Errore durante il recupero della lista dei todo:',
-          error
-        );
+        console.error('Errore durante il recupero della lista dei todo:', error);
       }
     );
   }
