@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina Amici</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https: //fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poetsen+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500 ;1.700;1.900&family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo"><a href="/" class="titlePage">Todo app</a></div>
+      <div class="user">
+        <img
+          src="./img/User icon.png"
+          alt="Icona Utente"
+          class="userIcon"
+          id="userIcon"
+        />
+        <div class="dropdown">
+          <ul class="ul">
+            <li class="listDropdown">
+              <a class="linkDropdown" href="#">Profilo</a>
+            </li>
+            <li class="listDropdown">
+              <a class="linkDropdown" href="#">Amici</a>
+            </li>
+            <li class="listDropdown">
+              <a class="linkDropdown" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar">
+      <div class="friend-requests">
+        <h2>Richieste di Amicizia</h2>
+        <ul class="request-list">
+          <li class="request">
+            <span class="labelNome">Nome: 321</span> <br />
+            <button class="accept-btn">Accetta</button>
+            <button class="reject-btn">Rifiuta</button>
+          </li>
+          <li class="request">
+            <span class="labelNome">Nome: 321</span> <br />
+            <button class="accept-btn">Accetta</button>
+            <button class="reject-btn">Rifiuta</button>
+          </li>
+          <li class="request">
+            <span class="labelNome">Nome: 321</span> <br />
+            <button class="accept-btn">Accetta</button>
+            <button class="reject-btn">Rifiuta</button>
+          </li>
+          <!-- Aggiungi altre richieste se necessario -->
+        </ul>
+      </div>
+    </div>
+
+    <main>
+      <div class="friends-page">
+        <h1>I tuoi amici</h1>
+        <div class="user-info">
+          <p id="nomeUtente">Nome Utente: John Doe</p>
+          <p id="idUtente">ID Utente: 123456</p>
+        </div>
+        <div class="search-container">
+          <input type="text" id="userID" placeholder="Inserisci l'ID utente" />
+          <button id="btnSearch" onclick="searchUser()">Cerca</button>
+          <input
+            type="text"
+            id="userUsername"
+            placeholder="Cerca con l'username"
+          />
+          <button id="btnSearchName" onclick="searchByName()">Cerca</button>
+        </div>
+        <ul class="friend-list">
+          <li class="friend">
+            <span class="spanNome">Nome: Pippo</span>
+            <button class="remove-btn">Rimuovi</button>
+          </li>
+          <li class="friend">
+            <span class="spanNome">Nome: Pluto</span>
+            <button class="remove-btn">Rimuovi</button>
+          </li>
+          <li class="friend">
+            <span class="spanNome">Nome: Tortino</span>
+            <button class="remove-btn">Rimuovi</button>
+          </li>
+          <li class="friend">
+            <span class="spanNome">Nome: Pasquale</span>
+            <button class="remove-btn">Rimuovi</button>
+          </li>
+          <!-- Aggiungi altri amici se necessario -->
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<div class="body">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a href="/dashboard" class="Brand"><span class="Brand">Todo app</span></a>
+    </div>
+
+    <div class="navbar-brand navbar-user" (click)="onClickUser()">
+      <span class="profile-name">{{ fullName }}</span>
+      <img
+        onerror="this.src='https://cdn-icons-png.flaticon.com/512/9131/9131529.png'"
+        alt="User Icon"
+        [src]="picture"
+        class="user-icon"
+        id="user"
+      />
+    </div>
+
+    <div class="dropdown">
+      <ul class="ul">
+        <li class="listDropdown">
+          <a class="linkDropdown" href="/dashboard" (click)="show_alert()">Profilo</a>
+        </li>
+        <li class="listDropdown">
+          <a class="linkDropdown" [routerLink]="['/amici']">Amici</a>
+        </li>
+        <li class="listDropdown">
+          <a class="linkDropdown" href="#" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul class="sidebar-menu">
+      <li>
+        <div class="todo-item">
+          <a class="btn btn-view-todo" (click)="onClickViewTodo()">Visualizza i Todo</a>
+          <div class="todo-options">
+            <span class="option-label">Visualizza completati</span>
+            <label class="toggle-switch">
+              <input
+                type="checkbox"
+                id="completed"
+                [(ngModel)]="completed"
+                (change)="onChangeCompleted()"
+              />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="btn btn-add-todo" (click)="onClickAddTodo()">Aggiungere un Todo</a>
+      </li>
+      <li>
+        <a class="btn btn-flag-completed" (click)="onClickFlagCompleted()">Cambia stato todo</a>
+      </li>
+      <li>
+        <a class="btn btn-flag-incomplete" (click)="onClickNewAssign()"
+          >Riassegna todo esistente
+        </a>
+      </li>
+      <li>
+        <a class="btn btn-delate" (click)="onClickDelate()">Elimina todo</a>
+      </li>
+      <li>
+        <a class="btn btn-change-duedate" (click)="onClickDate()">Modifica la scadenza</a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" [ngClass]="{ 'no-todos': todos.length <= 0 }">
+    <!-- Visualizza i Todo -->
+    <div *ngIf="todos.length > 0 && isView">
+      <app-todo-card [todos]="todos"></app-todo-card>
+    </div>
+
+    <!-- Aggiungi un Todo -->
+    <div *ngIf="isAdd">
+      <app-add-todo></app-add-todo>
+    </div>
+
+    <!-- Flagga Completato -->
+    <div *ngIf="isCheck">
+      <app-change-completed></app-change-completed>
+    </div>
+
+    <!-- Riassegna Todo -->
+    <div *ngIf="isAssigned">
+      <app-assigned-to></app-assigned-to>
+    </div>
+
+    <!-- Elimina Todo -->
+    <div *ngIf="isDelate">
+      <app-delate></app-delate>
+    </div>
+
+    <!-- Modifica la scadenza -->
+    <div *ngIf="isDate">
+      <app-change-duedate></app-change-duedate>
+    </div>
+  </main>
+
+  <script>
+    console.log("Script caricato");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".btn-view-todo").addEventListener("click", function () {
+        console.log("Bottone cliccato");
+      });
+    });
+  </script>
+</div>

@@ -1,0 +1,138 @@
+/* Body */
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headers */
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #f4f4f4;
+  height: 270px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column; /* Cambia la direzione del layout in verticale */
+  align-items: center; /* Allinea i form al centro rispetto all'asse verticale */
+  margin-bottom: 10px;
+}
+
+.todo-form {
+  background-color: #fff;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: 0px 0px -5px -5px rgba(0, 0, 0, 0.1) inset;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  top: -20px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  width: 315px;
+}
+.todo-input:focus {
+  border-color: #007bff;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  width: 175px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+.full-width-btn {
+  position: relative;
+  width: 520px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+.full-width-btn:hover {
+  position: relative;
+  background-color: #0056b3;
+  z-index: 1;
+}
+
+.searchAll {
+  width: 561.2px;
+  display: flex;
+  justify-content: center;
+  background: white;
+}
+
+.change-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  width: 175px;
+}
+
+.todo-title {
+  text-align: center; /* Centra il titolo */
+  margin-bottom: 20px; /* Aggiunge spazio tra il titolo e i form */
+}
+
+.submit {
+  width: 520px;
+  position: relative;
+  top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit form {
+  width: 100%; /* Rendi i form larghi quanto il loro contenitore */
+}
+
+.change-btn {
+  width: 100%; /* Rendi i bottoni larghi quanto il loro contenitore */
+  position: relative;
+  right: 10px;
+  margin-top: 10px;
+}
+
+#submit {
+  width: 500px;
+}
+
+/* Main */
+main {
+  /* border: 1px solid #000;  */
+  /* Debug */
+}

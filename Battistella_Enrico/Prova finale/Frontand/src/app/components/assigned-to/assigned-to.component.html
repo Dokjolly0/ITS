@@ -1,0 +1,49 @@
+<div class="body">
+  <div class="header">
+    <div class="search">
+      <div class="searchAll">
+        <form (ngSubmit)="searchAll()">
+          <button class="full-width-btn">Cerca tutti i todo disponibili</button>
+        </form>
+      </div>
+      <div class="todo-form">
+        <form (ngSubmit)="onSubmitSearch()">
+          <input
+            type="text"
+            class="todo-input"
+            id="title"
+            placeholder="Cerca un todo per titolo"
+          />
+          <button class="search-btn">Cerca todo</button>
+        </form>
+      </div>
+      <div class="todo-form submit">
+        <form (ngSubmit)="onAssign()">
+          <input
+            type="text"
+            class="todo-input"
+            id="id"
+            placeholder="Inserisci l'id del todo"
+          />
+          <div class="form-group">
+            <label for="assignedTo">Assegna il todo a:</label>
+            <select
+              id="idAssignSelect"
+              name="assignedTo"
+              [(ngModel)]="todo.assignedTo"
+            >
+              <option value="" disabled selected>Scegli un utente</option>
+              <option *ngFor="let user of availableUsers" [value]="user">
+                {{ user }}
+              </option>
+            </select>
+          </div>
+          <button type="submit" class="change-btn">Assegna todo</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <main>
+    <app-todo-card [todos]="todos"></app-todo-card>
+  </main>
+</div>

@@ -1,0 +1,71 @@
+<div class="cards">
+  <div class="todo-card" *ngFor="let todo of todos">
+    <div class="todo-header">
+      <h2>{{ todo.title }}</h2>
+    </div>
+
+    <div class="todo-id">
+      <!-- {{todo.id}} -->
+      <span>ID: </span>
+      <button class="copy-id-button" (click)="copyTodoId(todo.id!)">Copia ID</button>
+    </div>
+
+    <div class="todo-details">
+      <div class="user-info">
+        <div class="created-by">
+          <span>Creato da: </span>
+          <img
+            [src]="todo.createdBy.picture"
+            alt="Immagine utente"
+            onerror="this.src='https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png'"
+          />
+          <span>{{ todo.createdBy.fullName }}</span>
+        </div>
+
+        <div class="assigned-to">
+          <span>Assegnato a: </span>
+          <img
+            [src]="todo.assignedTo?.picture"
+            alt="Immagine utente"
+            onerror="this.src='https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png'"
+          />
+          <span>{{
+            todo.assignedTo?.fullName ? todo.assignedTo?.fullName : "Nessun utente assegnato"
+          }}</span>
+        </div>
+      </div>
+
+      <!-- Verifica se la descrizione esiste prima di mostrarla -->
+      <div *ngIf="description" class="description">
+        <br />
+        <span>Descrizione: {{ description }}</span>
+      </div>
+      <br />
+
+      <div class="completion-info">
+        <div>
+          <span>Completato: {{ todo.completed ? "Completato" : "Non completato" }}</span>
+        </div>
+        <br />
+
+        <div class="due-date">
+          <ng-container *ngIf="todo.dueDate">
+            <span *ngIf="isExpired(todo.dueDate)">
+              <span>Scadenza: </span>
+              <span class="due-date-color"
+                >scaduto da {{ expiredDays }} giorni
+                <span class="date-expired">({{ todo.dueDate | date : "dd/MM/yyyy" }})</span>
+              </span>
+            </span>
+
+            <span *ngIf="!isExpired(todo.dueDate)" class="not-expired">
+              <span>Scadenza: {{ todo.dueDate | date : "dd/MM/yyyy" }}</span>
+            </span>
+          </ng-container>
+
+          <ng-container *ngIf="!todo.dueDate"> Scadenza: nessuna scadenza impostata </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

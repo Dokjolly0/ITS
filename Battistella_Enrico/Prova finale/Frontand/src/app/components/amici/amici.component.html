@@ -1,0 +1,84 @@
+<div class="body">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a href="/dashboard" class="Brand"><span class="Brand">Todo app</span></a>
+    </div>
+
+    <div class="navbar-brand navbar-user" (click)="onClickUser()">
+      <span class="profile-name">{{ fullName }}</span>
+      <img
+        onerror="this.src='https://cdn-icons-png.flaticon.com/512/9131/9131529.png'"
+        alt="User Icon"
+        [src]="picture"
+        class="user-icon"
+        id="user"
+      />
+    </div>
+
+    <div class="dropdown">
+      <ul class="ul">
+        <li class="listDropdown">
+          <a class="linkDropdown" href="#">Profilo</a>
+        </li>
+        <li class="listDropdown">
+          <a class="linkDropdown" [routerLink]="['/amici']">Amici</a>
+        </li>
+        <li class="listDropdown">
+          <a class="linkDropdown" href="#" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="sidebar">
+    <div class="friend-requests">
+      <h2>Richieste di Amicizia</h2>
+      <ul class="request-list">
+        <li class="request">
+          <span class="labelNome">Nome: 321</span> <br />
+          <button class="accept-btn">Accetta</button>
+          <button class="reject-btn">Rifiuta</button>
+        </li>
+        <li class="request">
+          <span class="labelNome">Nome: 321</span> <br />
+          <button class="accept-btn">Accetta</button>
+          <button class="reject-btn">Rifiuta</button>
+        </li>
+        <li class="request">
+          <span class="labelNome">Nome: 321</span> <br />
+          <button class="accept-btn">Accetta</button>
+          <button class="reject-btn">Rifiuta</button>
+        </li>
+        <!-- Aggiungi altre richieste se necessario -->
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <div class="friends-page">
+      <h1>I tuoi amici</h1>
+      <div class="user-info">
+        <p id="nomeUtente">Nome Utente: John Doe</p>
+        <p id="idUtente">ID Utente: 123456</p>
+      </div>
+      <div class="search-container">
+        <input type="text" id="userID" placeholder="Inserisci l'ID utente" />
+        <button id="btnSearch" (ngSubmit)="searchUser()">Cerca</button>
+        <input
+          type="text"
+          id="userUsername"
+          placeholder="Cerca con l'username"
+        />
+        <button id="btnSearchName" (click)="searchUser()">Cerca</button>
+      </div>
+      <ul class="friend-list" *ngFor="let amico of amici">
+        <li class="friend">
+          <span class="spanNome">Nome: Pippo</span>
+          <button class="remove-btn">Rimuovi</button>
+        </li>
+      </ul>
+    </div>
+    <app-user-card *ngIf="user.length > -1"></app-user-card>
+  </main>
+</div>

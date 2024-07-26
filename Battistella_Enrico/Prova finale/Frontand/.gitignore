@@ -1,0 +1,32 @@
+# Files di build
+/dist/
+/tmp/
+/out-tsc/
+
+# Alcuni file che non dovrebbero essere distribuiti
+/tsconfig.tsbuildinfo
+/*.js
+/*.js.map
+
+# node_modules dovrebbe sempre essere ignorato
+/node_modules
+
+# File di configurazione specifici per l'IDE
+/.idea
+/.vscode
+
+# File di build generati dagli strumenti
+/coverage
+/.nyc_output
+
+# File di configurazione per diversi strumenti e librerie
+/.angular.json
+/.eslintrc.json
+/.prettierrc
+/tsconfig.json
+/karma.conf.js
+/jest.config.js
+
+# Altri file e cartelle da ignorare
+.DS_Store
+.angular
