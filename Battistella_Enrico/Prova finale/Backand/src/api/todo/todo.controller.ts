@@ -36,8 +36,9 @@ export const check = async (
   next: NextFunction
 ) => {
   try {
+    const user = req.user!;
     const todoId: string = req.params.id;
-    const todo = await TodoService.checkTodo(todoId, true);
+    const todo = await TodoService.checkTodo(user.id, todoId, true);
     res.status(200).json(todo);
   } catch (err) {
     //Se trova errori, li devi aggiungere nel dto e poi nel router  devi mettere validate(quel_dto)
@@ -51,8 +52,9 @@ export const uncheck = async (
   next: NextFunction
 ) => {
   try {
+    const user = req.user!;
     const todoId = req.params.id;
-    const todo = await TodoService.checkTodo(todoId, false);
+    const todo = await TodoService.checkTodo(user.id, todoId, false);
     res.status(200).json(todo);
     //Se l'id non è quello del creatore oppure il todo non viene trovato torna 400 invece di 404
   } catch (err: any) {

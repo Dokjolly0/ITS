@@ -4,6 +4,7 @@ import { task_entity as Todo } from "./todo.entity";
 import { TodoModel } from "./todo.model";
 import { Add_todo_dto } from "./todo.dto";
 import { NotFoundError } from "../../errors/not-found";
+import { UnauthorizedError } from "../../errors/UnoutorizedError";
 
 export class TodoService {
   //Funzione per filtrare todo completi e non completi
@@ -29,9 +30,12 @@ export class TodoService {
   }
 
   // Vale sia per Check che per Uncheck
-  async checkTodo(todoId: string, completed: boolean) {
+  async checkTodo(userId, todoId: string, completed: boolean) {
     const todo = await TodoModel.findById(todoId);
     if (!todo) throw new NotFoundError();
+    const createdById = todo.createdBy.toString();
+    const assignedToId = todo.assignedTo ? todo.assignedTo.toString() : null;
+    if (createdById !== userId && assignedToId !== userId) throw new NotFoundError();
     todo.completed = completed;
     await todo.save();
     return todo;
