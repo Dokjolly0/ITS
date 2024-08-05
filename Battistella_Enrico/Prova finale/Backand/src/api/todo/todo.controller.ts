@@ -1,6 +1,6 @@
 import TodoService from "./todo.service";
 import { Request, Response, NextFunction } from "express";
-import { Add_todo_dto, Check_todo_dto } from "./todo.dto";
+import { addTodoDto, checkTodoDto } from "./todo.dto";
 import { TypedRequest } from "../../utils/typed-request";
 
 export const list = async (req: Request, res: Response, next: NextFunction) => {
@@ -17,7 +17,7 @@ export const list = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 export const add = async (
-  req: TypedRequest<Add_todo_dto>,
+  req: TypedRequest<addTodoDto>,
   res: Response,
   next: NextFunction
 ) => {
@@ -31,7 +31,7 @@ export const add = async (
 };
 
 export const check = async (
-  req: TypedRequest<any, any, Check_todo_dto>,
+  req: TypedRequest<any, any, checkTodoDto>,
   res: Response,
   next: NextFunction
 ) => {
@@ -47,7 +47,7 @@ export const check = async (
 };
 
 export const uncheck = async (
-  req: TypedRequest<any, any, Check_todo_dto>,
+  req: TypedRequest<any, any, checkTodoDto>,
   res: Response,
   next: NextFunction
 ) => {

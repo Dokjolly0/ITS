@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import { UserModel } from "../user/user.model";
 import { task_entity as Todo } from "./todo.entity";
 import { TodoModel } from "./todo.model";
-import { Add_todo_dto } from "./todo.dto";
+import { addTodoDto } from "./todo.dto";
 import { NotFoundError } from "../../errors/not-found";
-import { UnauthorizedError } from "../../errors/UnoutorizedError";
+import { NotMongoIdError } from "../../errors/not-mongoId";
 
 export class TodoService {
   //Funzione per filtrare todo completi e non completi
@@ -21,7 +21,7 @@ export class TodoService {
   }
 
   //Partial è un tipo di TypeScript che crea un nuovo tipo con tutti i campi di un altro tipo impostati come obbligatori.
-  async addTodo(TodoObject: Add_todo_dto, userId: string): Promise<Todo> {
+  async addTodo(TodoObject: addTodoDto, userId: string): Promise<Todo> {
     const newTodo = await TodoModel.create({
       ...TodoObject,
       createdBy: userId, // Assegna direttamente l'ID dell'utente
@@ -46,11 +46,17 @@ export class TodoService {
     assignedTo: mongoose.Types.ObjectId,
     userId: string
   ) {
+    //if (!mongoose.Types.ObjectId.isValid(id)) throw new NotMongoIdError(); chiedere
+    if (!mongoose.Types.ObjectId.isValid(id) || !mongoose.Types.ObjectId.isValid(assignedTo)) throw new NotFoundError();
     const todo = await TodoModel.findById(id); //Todo
     if (!todo) throw new NotFoundError();
     const assignedToUser = await UserModel.findById(assignedTo); //Utente a cui verra assegnato il todo
+    if (!assignedToUser) throw new NotFoundError();
+
     if (todo.createdBy.toString() === userId)
-      todo.assignedTo = assignedToUser!.id;
+      todo.assignedTo = assignedToUser.id;
+    else throw new NotFoundError();
+
     await todo.populate("createdBy assignedTo");
     if (todo.isModified("assignedTo")) await todo.save();
     return todo;

@@ -2,7 +2,7 @@
 import { IsMongoId, IsString, IsOptional, IsDateString } from "class-validator";
 import mongoose from "mongoose";
 
-export class Add_todo_dto {
+export class addTodoDto {
   @IsString()
   title: string;
 
@@ -18,7 +18,7 @@ export class Add_todo_dto {
   // createdBy: mongoose.Types.ObjectId;
 }
 
-export class Check_todo_dto {
+export class checkTodoDto {
   @IsMongoId()
   id: string;
 }

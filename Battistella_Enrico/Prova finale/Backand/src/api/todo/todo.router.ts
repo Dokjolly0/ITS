@@ -12,16 +12,18 @@ import {
   updateDate,
 } from "./todo.controller";
 import { validate } from "../../utils/validation-middleware";
-import { Add_todo_dto, Check_todo_dto } from "./todo.dto";
+import { addTodoDto, checkTodoDto } from "./todo.dto";
 
 const router = express.Router();
 
 router.use(isAuthenticated);
 router.get("/", list);
-router.post("/", validate(Add_todo_dto), add);
-router.patch("/:id/check", validate(Check_todo_dto, "params"), check);
-router.patch("/:id/uncheck", validate(Check_todo_dto, "params"), uncheck);
-router.post("/:id/assign", /*canAssing,*/ assign);
+router.post("/", validate(addTodoDto), add);
+router.patch("/:id/check", validate(checkTodoDto, "params"), check);
+router.patch("/:id/uncheck", validate(checkTodoDto, "params"), uncheck);
+router.post("/:id/assign", assign);
+/* Chiamate in più */
+//router.post("/:id/assign", /*canAssing,*/validate(checkTodoDto), assign);
 router.get("/title/:title", getByTitle);
 router.get("/id/:id", getById);
 router.delete("/delete/:id", delate);
