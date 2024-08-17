@@ -1,3 +1,5 @@
+import { NotFoundError } from "../../errors/not-found";
+import { UnauthorizedError } from "../../errors/UnoutorizedError";
 import { UserExistsError } from "../../errors/user-exists";
 import { UserIdentityModel } from "../../utils/auth/local/user-identity.model";
 import { User } from "./user.entity";
@@ -39,31 +41,24 @@ export class UserService {
     return newUser;
   }
 
-  async show_all_users(userId: string): Promise<User[]> {
+  async showAllUsers(userId: string): Promise<User[]> {
     const isAuthenticated = await UserModel.findById(userId);
-    if (!isAuthenticated) throw new Error("Utente non autenticato");
+    if (!isAuthenticated) throw new UnauthorizedError();
     const users = await UserModel.find();
     return users;
   }
 
-  async find_user_by_fullName(
+  async findUserByFullName(
     userId: string,
     firstName: string,
     lastName: string
   ) {
     // Cerca l'utente per ID
     const isAuthenticated = await UserModel.findById(userId);
-    if (!isAuthenticated) {
-      throw new Error("Utente non autenticato");
-    }
-
+    if (!isAuthenticated) throw new UnauthorizedError();
     // Trova l'utente con lo stesso nome e cognome
     const user = await UserModel.findOne({ firstName, lastName });
-
-    if (!user) {
-      throw new Error("Utente non trovato");
-    }
-
+    if (!user) new NotFoundError()
     return user;
   }
 

@@ -1,13 +1,14 @@
-//npm install class-transformer //npm install class-validator
 import { IsMongoId, IsString, IsOptional, IsDateString } from "class-validator";
 import mongoose from "mongoose";
+import { IsNotPastDate } from "../../utils/decorators/checkDate"; //Custom
 
-export class addTodoDto {
+export class AddTodoDto {
   @IsString()
   title: string;
 
   @IsDateString()
   @IsOptional()
+  @IsNotPastDate({ message: "The due date must be in the past" })
   dueDate?: Date;
 
   @IsMongoId()
@@ -18,7 +19,7 @@ export class addTodoDto {
   // createdBy: mongoose.Types.ObjectId;
 }
 
-export class checkTodoDto {
+export class CheckTodoDto {
   @IsMongoId()
   id: string;
 }

@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { TypedRequest } from "../../utils/typed-request";
 import userService from "./user.service";
+import { NotFoundError } from "../../errors/not-found";
 
 export const me = async (
   req: TypedRequest,
@@ -10,26 +11,21 @@ export const me = async (
   res.json(req.user!);
 };
 
-export const show_all_users = async (
+export const showAllUsers = async (
   req: TypedRequest,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const user = req.user!;
-    const users = await userService.show_all_users(user.id!);
+    const users = await userService.showAllUsers(user.id!);
     res.json(users);
-  } catch (err: any) {
-    if (err.message === "Utente non autenticato")
-      res.status(401).json({ message: "Utente non autenticato" });
-    else
-      res
-        .status(500)
-        .json({ message: "Errore interno del server: " + err.message });
+  } catch (err) {
+    next(err)
   }
 };
 
-export const find_user_by_fullName = async (
+export const findUserByFullName = async (
   req: TypedRequest,
   res: Response,
   next: NextFunction
@@ -37,28 +33,22 @@ export const find_user_by_fullName = async (
   try {
     const user = req.user!;
     const fullName: string = req.params.fullName as string; // Assicurati che fullName sia di tipo stringa
-    console.log(fullName);
     const spaceIndex = fullName.indexOf(" ");
     const firstName =
       spaceIndex !== -1 ? fullName.substring(0, spaceIndex) : fullName;
     const lastName =
       spaceIndex !== -1 ? fullName.substring(spaceIndex + 1) : "";
 
-    const users = await userService.find_user_by_fullName(
+    const users = await userService.findUserByFullName(
       user.id!,
       firstName,
       lastName
     );
 
-    if (!users) throw new Error("Utente non trovato");
+    if (!users) throw new NotFoundError();
     res.json(users);
-  } catch (err: any) {
-    if (err.message === "Utente non trovato")
-      res.status(404).json({ message: "Utente non trovato" });
-    else
-      res
-        .status(500)
-        .json({ message: "Errore interno del server: " + err.message });
+  } catch (err) {
+    next(err)
   }
 };
 

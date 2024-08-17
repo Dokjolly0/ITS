@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 import { UserModel } from "../user/user.model";
 import { task_entity as Todo } from "./todo.entity";
 import { TodoModel } from "./todo.model";
-import { addTodoDto } from "./todo.dto";
+import { AddTodoDto } from "./todo.dto";
 import { NotFoundError } from "../../errors/not-found";
 import { NotMongoIdError } from "../../errors/not-mongoId";
+import { BadRequestError } from "../../errors/bad-request";
 
 export class TodoService {
   //Funzione per filtrare todo completi e non completi
@@ -21,18 +22,25 @@ export class TodoService {
   }
 
   //Partial è un tipo di TypeScript che crea un nuovo tipo con tutti i campi di un altro tipo impostati come obbligatori.
-  async addTodo(TodoObject: addTodoDto, userId: string): Promise<Todo> {
+  async addTodo(TodoObject: AddTodoDto, userId: string): Promise<Todo> {
     const newTodo = await TodoModel.create({
       ...TodoObject,
       createdBy: userId, // Assegna direttamente l'ID dell'utente
     });
+    const now = new Date;
     return newTodo.populate("createdBy assignedTo"); // Esegui popolazione e restituisci il risultato
   }
 
   // Vale sia per Check che per Uncheck
   async checkTodo(userId, todoId: string, completed: boolean) {
-    const todo = await TodoModel.findById(todoId);
-    if (!todo) throw new NotFoundError();
+
+    let todo;
+    try { 
+      todo = await TodoModel.findById(todoId); 
+      if (!todo) throw new NotFoundError();
+    }
+    catch (err) { throw new NotFoundError(); }
+
     const createdById = todo.createdBy.toString();
     const assignedToId = todo.assignedTo ? todo.assignedTo.toString() : null;
     if (createdById !== userId && assignedToId !== userId) throw new NotFoundError();
@@ -46,17 +54,19 @@ export class TodoService {
     assignedTo: mongoose.Types.ObjectId,
     userId: string
   ) {
-    //if (!mongoose.Types.ObjectId.isValid(id)) throw new NotMongoIdError(); chiedere
-    if (!mongoose.Types.ObjectId.isValid(id) || !mongoose.Types.ObjectId.isValid(assignedTo)) throw new NotFoundError();
+    //Validation
+    if (!mongoose.Types.ObjectId.isValid(assignedTo)) throw new BadRequestError();
+    if (!mongoose.Types.ObjectId.isValid(id)) throw new NotFoundError()
     const todo = await TodoModel.findById(id); //Todo
     if (!todo) throw new NotFoundError();
+    //assignedTo
     const assignedToUser = await UserModel.findById(assignedTo); //Utente a cui verra assegnato il todo
-    if (!assignedToUser) throw new NotFoundError();
-
+    if (!assignedToUser) throw new BadRequestError();
+    //Check
     if (todo.createdBy.toString() === userId)
       todo.assignedTo = assignedToUser.id;
     else throw new NotFoundError();
-
+    //Save
     await todo.populate("createdBy assignedTo");
     if (todo.isModified("assignedTo")) await todo.save();
     return todo;
